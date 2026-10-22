@@ -90,10 +90,7 @@ body.h #stage{display:none}body:not(.h) #home{display:none}
 /* celular: tela inicial com aplicativos */
 body.p #stage,body.p #home{display:none}body:not(.p) #phone{display:none}
 #phone{position:relative;height:100%;overflow:hidden;display:flex;flex-direction:column;background:linear-gradient(#101a18,#15211f);color:var(--ink)}
-#pstat{position:relative;display:flex;justify-content:space-between;align-items:center;padding:8px 22px 0;font-weight:600;font-size:14px}
-#pstat span{display:flex;align-items:center;gap:6px}
-#phd{position:relative;flex:none;width:40px;height:4px;margin:10px auto 0;border-radius:2px;background:rgba(246,234,210,.4)}
-#psr{flex:none;height:44px;margin:16px 16px 28px;border-radius:22px;background:#1e2a27;border-color:var(--line)}#psr input{font-size:16px}
+#psr{flex:none;height:44px;margin:20px 16px 28px;border-radius:22px;background:#1e2a27;border-color:var(--line)}#psr input{font-size:16px}
 #pgrid{position:relative;flex:1;min-height:0;overflow-y:auto;align-content:start;display:grid;grid-template-columns:repeat(4,1fr);gap:22px 6px;padding:0 14px}
 #phone .app{display:flex;flex-direction:column;align-items:center;gap:7px;min-height:0;padding:0;border:0;background:none;border-radius:0;color:var(--ink);font:600 11.5px/1.1 "Outfit",system-ui,sans-serif;white-space:nowrap;text-shadow:0 1px 4px #000}
 .ic{width:min(100%,68px);aspect-ratio:1;border-radius:23%;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.16);transition:transform .12s}
@@ -308,8 +305,6 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 <body class="h p"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="rm" viewBox="0 0 24 24"><path d="M5 22L6 16L8 12.5L12 15L15 18L13 22Z" fill="#c4b793"/><path d="M12 15L15 18L13 22H9Z" fill="#a99c7e"/><path d="M8 9L8.5 4.5L10.5 6.5L12 3L14 6.5L16 4L16.5 9Z" fill="#e63946"/><path d="M12 3L14 6.5L12.5 9H10.5Z" fill="#b3202e"/><path d="M8 9H16.5L17.5 13L12 15L8 12.5Z" fill="#e4d6b8"/><path d="M12 9H16.5L17.5 13L14 12Z" fill="#fff8e6"/><path d="M17.5 10.5L22 12.5L17.5 14Z" fill="#d6c9a6"/><path d="M17.5 12.5H22L17.5 14Z" fill="#a99c7e"/><path d="M14 14L16.2 14.4L15 18Z" fill="#e63946"/><path d="M13 10.2H15.3L14.2 12Z" fill="#0f3d1f"/></symbol></svg>
 <div id="phone">
 <div id="wall"><canvas id="wc2" aria-hidden="true"></canvas></div>
-<div id="pstat"><b id="pst">--:--</b><span><svg width="18" height="12" viewBox="0 0 18 12" fill="#f6ead2"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="26" height="12" viewBox="0 0 26 12" fill="none" stroke="#f6ead2"><rect x=".5" y=".5" width="21" height="11" rx="3"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.5" fill="#f6ead2" stroke="none"/><path d="M24 4v4" stroke-width="2" stroke-linecap="round"/></svg></span></div>
-<i id="phd"></i>
 <label id="psr" class="sr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1f1f1" stroke-width="2.4" stroke-linecap="round" style="margin-left:16px;flex:none;opacity:.85"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><input id="pq" placeholder="Pesquisar apps" aria-label="Pesquisar apps" autocomplete="off"></label>
 <nav id="pgrid" aria-label="Aplicativos">
 <button class="app" id="coopapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0993f"/><stop offset="1" stop-color="#b8431a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g1)"/><ellipse cx="30" cy="62" rx="22" ry="14" fill="#f6ead2"/><circle cx="32" cy="37" r="14" fill="#f6ead2"/><g fill="#d62839"><circle cx="26" cy="21" r="5"/><circle cx="33" cy="18" r="5.5"/><circle cx="40" cy="21" r="5"/><rect x="26" y="21" width="14" height="6"/><ellipse cx="41" cy="49" rx="3.2" ry="5.5"/></g><path d="M45 34l11 4-11 4z" fill="#f0a830"/><circle cx="38" cy="34" r="2.2" fill="#15110f"/></svg></span>Galinheiro</button>
@@ -885,8 +880,6 @@ $('q').oninput=e=>{const v=e.target.value.toLowerCase();[...$('feed').children].
 function goPhone(){$('pq').value='';$('pq').oninput({target:$('pq')});document.body.classList.remove('c','s','g','i');document.body.classList.add('p')}
 let tt;function toast(t){const e=$('ptoast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1400)}
 document.querySelectorAll('.app[data-soon]').forEach(a=>a.onclick=()=>{const i=a.firstChild;i.classList.remove('wg');void i.offsetWidth;i.classList.add('wg');toast('Em breve')});
-function pclock(){$('pst').textContent=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}
-pclock();setInterval(pclock,10000);
 $('pq').oninput=e=>{const v=e.target.value.trim().toLowerCase();document.querySelectorAll('#pgrid .app').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(v))};
 /* navegação do celular */
 const B=document.body.classList;let recent=[];

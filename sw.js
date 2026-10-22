@@ -1,6 +1,6 @@
 /* Service worker do Chicken Fight TV: depois da primeira visita o jogo abre offline.
    Ao publicar uma versão nova do jogo, aumente o número em VER (v3, v4...) para os celulares trocarem o cache. */
-const VER = 'chicken-tv-v2';
+const VER = 'chicken-tv-v3';
 const LOCAL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
 const OPTIONAL = ['galo.jpg']; // papel de parede da tela inicial: só entra se o arquivo existir
 const SCRIPTS = ['https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'];
@@ -24,7 +24,7 @@ self.addEventListener('install', e => {
   e.waitUntil((async () => {
     const c = await caches.open(VER);
     // cache:'reload' ignora o cache HTTP (o GitHub Pages guarda ~10 min) para não gravar arquivo velho
-    await c.addAll(LOCAL.map(u => new Request(u, { cache: 'reload' })));
+    await Promise.all(LOCAL.map(u => fetch(new Request(u, { cache: 'reload' })).then(r => r.ok && c.put(u, r)).catch(() => {})));
     // itens extras: se algum falhar, a instalação continua
     const tasks = [];
     for (const u of OPTIONAL) tasks.push(fetch(new Request(u, { cache: 'reload' })).then(r => r.ok && c.put(u, r)).catch(() => {}));

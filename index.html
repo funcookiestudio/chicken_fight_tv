@@ -1372,6 +1372,10 @@ $('webapp').onclick=()=>window.openWeb();
 })();
 buildHome();requestAnimationFrame(tick);
 </script>
+<script>/* tela cheia: na 1ª e em toda toque seguinte, se saiu da tela cheia, pede de novo (o navegador só permite após um toque) */
+(()=>{const d=document,e=d.documentElement,rq=e.requestFullscreen||e.webkitRequestFullscreen;if(!rq)return;
+const go=()=>{if(d.fullscreenElement||d.webkitFullscreenElement)return;try{const r=rq.call(e,{navigationUI:'hide'});r&&r.catch&&r.catch(()=>{})}catch(_){}};
+['pointerup','touchend','click'].forEach(t=>addEventListener(t,go,{passive:true}))})();</script>
 <script>if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script>
 </body>
 </html>

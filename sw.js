@@ -1,4 +1,4 @@
-/* Service worker do Chicken Fight TV: depois da primeira visita o jogo abre offline.
+/* Service worker do Chicken Fight: depois da primeira visita o jogo abre offline.
    Ao publicar uma versão nova do jogo, aumente o número em VER (v3, v4...) para os celulares trocarem o cache. */
 const VER = 'chicken-tv-v3';
 const LOCAL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];

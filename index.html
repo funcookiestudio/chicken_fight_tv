@@ -208,7 +208,7 @@ body.c #stage,body.c #home,body.c #phone{display:none}body:not(.c) #coop{display
 #coop{position:relative;height:100%;overflow:hidden;background:#a9d8ea}
 #coop canvas{touch-action:manipulation}
 #cname{position:absolute;left:0;top:0;padding:4px 14px;border-radius:14px;background:rgba(18,26,24,.8);border:1px solid var(--line);font:400 clamp(15px,4.6vw,20px)/1.2 "Alfa Slab One",Georgia,serif;color:var(--c,var(--ink));white-space:nowrap;pointer-events:none;will-change:transform}
-#carr{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;align-items:center;gap:20px}
+#cw{position:absolute;left:12px;right:12px;bottom:92px;display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:14px;background:rgba(18,26,24,.85);border:1px solid var(--line)}#cwi{flex:1;min-width:0;font-size:13px;line-height:1.3}#cw button{min-height:44px;padding:6px 10px;font-size:13px}#carr{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;align-items:center;gap:20px}
 #carr button{width:64px;height:64px;min-height:0;padding:0;border-radius:50%;display:grid;place-items:center;background:rgba(18,26,24,.85);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 #carr svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 #carr button:active{background:rgba(60,80,72,.95)}
@@ -356,7 +356,7 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 <section id="cm"><div id="cmh"><span id="cmc"></span></div><div id="cmin"><i class="av">V</i><input id="cmi" placeholder="Adicione um comentário..." aria-label="Adicionar comentário" maxlength="200" autocomplete="off"><button id="cms">Enviar</button></div><div id="cml"></div></section>
 </div>
 </div>
-<div id="coop"><canvas id="cc"></canvas><div id="cname"></div><div id="carr"><button id="cprev" aria-label="Galo anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div id="cdots"></div><button id="cnext" aria-label="Próximo galo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+<div id="coop"><canvas id="cc"></canvas><div id="cname"></div><div id="cw"><span id="cwi"></span><button id="cf1">🌽 Comum</button><button id="cf2">🌾 Premium</button></div><div id="carr"><button id="cprev" aria-label="Galo anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div id="cdots"></div><button id="cnext" aria-label="Próximo galo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
 <div id="shop"><div id="shh"><b>Agropecuária</b><span id="shc"></span></div><div id="shi"></div><nav id="shtabs" aria-label="Seções"><button data-t="galos">Galos</button><button data-t="racao">Ração</button><button data-t="remedios">Remédios</button><button data-t="vender">Vender sacas</button></nav><div id="shl"></div><div id="shm" role="status"></div></div>
 <div id="gym"><div id="gcw"><canvas id="gcv"></canvas><div id="glog" role="status"></div></div><div id="gpn"><div id="gsel"><button id="gprev" aria-label="Galo anterior">‹</button><div class="gi"><b id="gnm"></b><i class="bar"><u id="gen"></u></i><small id="gst"></small></div><button id="gnext" aria-label="Próximo galo">›</button></div><div id="gsk"></div><button id="gtr">Treinar</button></div></div>
 <div id="web"><div id="wbar"><button id="wrel" aria-label="Atualizar página">↻</button><div id="wurl"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span id="wurlt"></span></div><span id="wcoins"></span></div><div id="wpg"></div><div id="wtoast" role="status"></div></div>
@@ -416,15 +416,15 @@ function makeBird(P){
   const piv=(nm,x,y,z)=>{const pg=new THREE.Group();pg.position.set(x,y,z);b.add(pg);const inn=new THREE.Group();inn.position.set(-x,-y,-z);pg.add(inn);rig[nm]=pg;rig[nm+'_in']=inn;return inn};
   rig.fm=[];rig.tf=[];rig.wf=[];
   const af=(g,c,k,p,r,s,nk)=>{const m=fth(g,c,SKN,k,nk);m.position.set(...p);if(r)m.rotation.set(...r);if(s)m.scale.set(...s);cur.add(m);rig.fm.push(m);return m},BK=TH?[.9,.72,.7]:[.88,.62,.58];
-  if(TH){af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],[1.35,.7,.62]);af(ico(.8,1),P.dark,BK,[.95,1.75,0],[0,0,.18],[.8,.75,.55]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,[1,.7,.55])}
-  else{af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],[1.45,.95,.9]);af(ico(.8,1),P.dark,BK,[.95,1.75,0],[0,0,.18],[.9,1,.95]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,[1.1,.9,.8])}
+  if(TH){af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],[1.35,.7,.62]);af(ico(.8,1),P.dark,BK,[.95,1.75,0],[0,0,.18],[.8,.75,.55]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,[1,.7,.55]);[[1.35,2.05,0],[1.25,1.95,.22],[1.25,1.95,-.22],[1.1,2.15,.12],[1.1,2.15,-.12]].forEach(([x,y,z],i)=>a(cone(.1,.55,3),i%2?P.gold:P.body,[x,y,z],[0,0,Math.PI+.35+.12*i]))}
+  else{af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],[1.45,.95,.9]);af(ico(.82,2),P.dark,BK,[1,1.78,0],[0,0,.18],[.98,1.05,1.02]);af(ico(.8,1),P.gold,BK,[.92,2.3,0],[0,0,.18],[1.05,.62,1.02]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,[1.1,.9,.8])}
   cur=piv('neck',.85,2.3,0);
-  if(TH){a(new THREE.CylinderGeometry(.12,.3,1.45,6),SKN,[1.05,2.9,0],[0,0,-.28]);
+  if(TH){a(new THREE.CylinderGeometry(.12,.3,1.45,6),SKN,[1.05,2.9,0],[0,0,-.28]);[[.98,2.8,.2],[.98,2.8,-.2],[.92,2.55,.22],[.92,2.55,-.22]].forEach(([x,y,z],i)=>a(cone(.09,.5,3),i%2?P.body:P.gold,[x,y,z],[0,0,Math.PI-.5]));
     [[.3,.5,1],[.55,-.4,-1],[.8,.6,1],[.12,.7,-1],[.42,.4,-1],[.68,-.5,1],[.9,.3,-1]].forEach(([u,r,s])=>a(cone(.07,.38,3),P.gold,[.88+.35*u,2.25+1.33*u,s*.1],[0,0,r]));
     [[.08,1],[.14,-1],[.26,1],[.38,-1],[.52,1],[.66,-1]].forEach(([u,s],i)=>a(ico(.17-.1*u),i%2?P.dark:P.gold,[.88+.35*u,2.25+1.33*u,s*(.3-.18*u)*.75],[0,0,-.28],[1,1.5,.7]))}
   else af(new THREE.CylinderGeometry(.3,.8,1.3,7,5),P.gold,[.38,1,.38],[1.05,2.9,0],[0,0,-.28],null,true);
 
-  a(ico(.42),P.gold,[1.42,3.65,0],0,[1.15,1,.85]);
+  a(ico(.42),P.gold,[1.42,3.65,0],0,[1.15,1,.85]);if(TH)[[1.12,3.72,.16],[1.1,3.62,-.16],[1.05,3.78,0]].forEach(([x,y,z])=>a(cone(.06,.32,3),P.gold,[x,y,z],[0,0,Math.PI/2-.5]));
   a(cone(.15,.46),YEL,[1.8,3.6,0],[0,0,-Math.PI/2-.1]);
   a(cone(.1,.3),YEL,[1.8,3.5,0],[0,0,-Math.PI/2+.08]);
   [[1.18,3.82,.34,.13],[1.32,3.91,.5,.15],[1.46,3.95,.56,.16],[1.6,3.9,.46,.14],[1.72,3.82,.3,.12]]
@@ -432,9 +432,13 @@ function makeBird(P){
   a(ico(TH?.08:.13),RED,[1.72,3.28,0],0,[.8,1.5,.6]);
   [1,-1].forEach(s=>{
     cur=rig.neck_in;
-    a(ico(.11),0xffd45a,[1.62,3.72,s*.36]);
-    a(ico(.07),0x15110f,[1.65,3.73,s*.43]);
-    rig['lid'+s]=a(ico(.15),P.gold,[1.63,3.725,s*.4],0,[1,.01,1]);rig['lid'+s].visible=false;
+    if(TH&&s<0){/* tapa-olho no olho esquerdo do Magrelo (perdeu o olho numa luta): disco preto + tira que sobe por trás da cabeça */
+  const V=(x,y,z)=>new THREE.Vector3(x,y,z),pd=V(.394,.159,-.905).normalize(),qd=V(-.62,.78,0),ud=qd.sub(pd.clone().multiplyScalar(qd.dot(pd))).normalize(),rp=[];
+  for(let k=0;k<=10;k++){const t=k/10*2.18,c=Math.cos(t),n=Math.sin(t);rp.push(V(1.42+.517*(c*pd.x+n*ud.x),3.65+.45*(c*pd.y+n*ud.y),.382*(c*pd.z+n*ud.z)))}
+  for(let k=0;k<10;k++){const d=rp[k+1].clone().sub(rp[k]),m=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,d.length(),5),M(0x15110f));m.position.copy(rp[k]).add(rp[k+1]).multiplyScalar(.5);m.quaternion.setFromUnitVectors(Y,d.normalize());cur.add(m)}
+  a(ico(.17,1),0x15110f,[1.62,3.72,-.34],[0,-.33,0],[1,1.05,.35])}else a(ico(.11),0xffd45a,[1.62,3.72,s*.36]);
+    if(!(TH&&s<0))a(ico(.07),0x15110f,[1.65,3.73,s*.43]);
+    rig['lid'+s]=a(ico(.15),P.gold,[1.63,3.725,s*(TH&&s<0?0:.4)],0,[1,.01,1]);rig['lid'+s].visible=false;
     const wz=TH?.64:.88;cur=piv('wing'+s,.1,2.3,s*wz);
     const gw=ico(1,1);gw.rotateY(s>0?0:2.1);
     af(gw,P.dark,TH?[.85,.6,.5]:[.9,.6,.5],[.1,2,s*wz],[0,0,.18],TH?[.8,.45,.15]:[1,.62,.22]);
@@ -445,16 +449,23 @@ function makeBird(P){
       rig.wf.push({m:fw,t:RK[i]>=nW-KP?9:(TH?.46:.16)+(TH?.5:.74)*RK[i]/(nW-KP-1),c:P.wing,g:false});
     }
     cur=piv('leg'+s,.1,1.45,s*.45);
-    const lr=TH?.7:1;a(ico(TH?.28:.4),P.body,[.1,1.3,s*.45],0,TH?[1,1.25,.7]:[1,1.1,.75]);
-    const li=cur;a(new THREE.CylinderGeometry(.07*lr,.08*lr,.5,5),YEL,[.1,1,s*.42]);
+    const lr=TH?.7:1;a(ico(TH?.28:.4),P.body,[.1,1.3,s*.45],0,TH?[1,1.25,.7]:[1,1.1,.75]);if(TH)[[0,1.38,.62],[.2,1.34,.58],[-.16,1.34,.56]].forEach(([x,y,z])=>a(cone(.08,.42,3),P.body,[.1+x,y,s*z],[0,0,Math.PI+.12]));
+    const li=cur,peg=TH&&s>0;
+    if(peg){/* perna de pau do Magrelo (perna direita): madeira rígida presa ao joelho, copa e tira de couro no alto, anel de ferro e ponteira no chão */
+      a(new THREE.CylinderGeometry(.1,.065,1.15,6),0x8a5a2e,[.1,.62,s*.42]);
+      a(new THREE.CylinderGeometry(.19,.12,.3,6),0x4a2f18,[.1,1.08,s*.42]);
+      a(new THREE.CylinderGeometry(.2,.2,.07,6),0x2a1a10,[.1,1.22,s*.42]);
+      a(new THREE.CylinderGeometry(.115,.115,.05,6),0x55555c,[.1,.55,s*.42]);
+      a(new THREE.CylinderGeometry(.07,.06,.09,6),0x2a1a10,[.1,.06,s*.42])}
+    else a(new THREE.CylinderGeometry(.07*lr,.08*lr,.5,5),YEL,[.1,1,s*.42]);
     const kp=new THREE.Group(),ki=new THREE.Group();kp.position.set(.1,.75,s*.42);ki.position.set(-.1,-.75,-s*.42);kp.add(ki);li.add(kp);rig['knee'+s]=kp;
-    cur=ki;a(ico(.1*lr),YEL,[.1,.75,s*.42]);a(new THREE.CylinderGeometry(.06*lr,.07*lr,.7,5),YEL,[.1,.4,s*.42]);
+    cur=ki;if(!peg){a(ico(.1*lr),YEL,[.1,.75,s*.42]);a(new THREE.CylinderGeometry(.06*lr,.07*lr,.7,5),YEL,[.1,.4,s*.42])}
     const ap=new THREE.Group(),ai=new THREE.Group();ap.position.set(.1,.08,s*.42);ai.position.set(-.1,-.08,-s*.42);ap.add(ai);ki.add(ap);rig['ankle'+s]=ap;cur=ai;
-    [[-.45,.5],[0,.55],[.45,.5],[Math.PI,.28]].forEach(([an,L])=>a(cone(.07*lr,L),YEL,[.1,.07,s*.42],[0,an,-Math.PI/2]));
+    if(!peg)[[-.45,.5],[0,.55],[.45,.5],[Math.PI,.28]].forEach(([an,L])=>a(cone(.07*lr,L),YEL,[.1,.07,s*.42],[0,an,-Math.PI/2]));
   });
   const T=[[0,0,0],[-.6,.4,0],[-1.05,1,0],[-1.3,1.7,0],[-1.3,2.25,0]];
   cur=piv('tail',-1.2,1.95,0);
-  (TH?[[0,.8,P.t1],[.3,.6,P.t2],[-.35,.5,P.t3]]:[[0,1.12,P.t1],[.2,1,P.t2],[-.2,1,P.t2],[.42,.82,P.t3],[-.42,.82,P.t3],[.64,.62,P.gold],[-.64,.62,P.gold]])
+  (TH?[[0,.8,P.t1],[.3,.6,P.t2],[-.35,.5,P.t3],[.62,.42,P.gold],[-.66,.4,P.gold]]:[[0,1.12,P.t1],[.2,1,P.t2],[-.2,1,P.t2],[.42,.82,P.t3],[-.42,.82,P.t3],[.64,.62,P.gold],[-.64,.62,P.gold]])
     .forEach(([an,k,c])=>{const f=feather(T.map(p=>p.map(v=>v*k)),TH?.15:.26,.04,c);f.position.set(-1.2,1.95,0);f.rotation.y=an;cur.add(f);rig.tf.push([f,an])});
   rig.tf.sort((p,q)=>Math.abs(p[1])-Math.abs(q[1]));
   b.setDmg=d=>{const e=Math.round((TH?(.4+.6*d):d)*100)/100;if(b._e===e)return;b._e=e;rig.fm.forEach(m=>m.userData.upd(TH?.4+.22*(e-.4)/.6:.5*e));rig.tf.forEach(([f],j)=>{f.visible=j<(TH?1:3)||!(e>.9-.6*j/rig.tf.length)});
@@ -520,7 +531,7 @@ function shedFeather(m,col){
 /* jogo */
 const NAMES=["Trovão","Capitão","Faísca","Valentão","Pé de Serra","Cangaceiro","Relâmpago","Sultão","Mourão","Tufão","Magrelo"];
 const INV={Feijão:40,Arroz:30,Batata:25,Trigo:20},KEYS=Object.keys(INV);
-let F=[],odds=[1,1],pick=0,item="Feijão",stake=10,bet=null,st="bet",turn=null;
+let F=[],odds=[1,1],pick=0,item="Feijão",stake=10,bet=null,st="bet",turn=null,lastAtt=null,streak=0,cnt=null;
 let picked=0,camx=0;const T=2.3,fmt=o=>o.toFixed(2).replace(".",",");
 const say=(t,c)=>{$('log').textContent=t;$('log').className=c?"crit":""};
 const maxStake=()=>Math.max(5,Math.floor(INV[item]*.5));
@@ -529,18 +540,18 @@ function newFight(){
   F.forEach(f=>scene.remove(f.g));
   if(KEYS.every(k=>INV[k]<5))KEYS.forEach(k=>INV[k]=10);
   if(INV[item]<5)item=KEYS.find(k=>INV[k]>=5);
-  const nm=CARD?CARD.names:NAMES.slice().sort(()=>Math.random()-.5);
+  const nm=CARD?CARD.names:NAMES.slice().sort(()=>Math.random()-.5);if(!CARD){const j=nm.findIndex((n,k)=>k&&catOf(wOf(n))===catOf(wOf(nm[0])));if(j>1)[nm[1],nm[j]]=[nm[j],nm[1]]}
   F=[0,1].map(i=>{
     const g=new THREE.Group(),b=makeBird(CARD?CARD.pal[i]:PAL[i]);b.shed=shedFeather;b.scale.setScalar(.5);g.add(b);
     scene.add(g);
     const hp=Math.round(85+Math.random()*35);
-    return{i,g,b,pal:CARD?CARD.pal[i]:PAL[i],name:nm[i],hp,max:hp,atk:8+Math.random()*7,def:3+Math.random()*5,spd:4+Math.random()*6,luck:.05+Math.random()*.12,rig:b.rig,pose:{fwd:0,y:0,lean:0,nz:0,ny:0,wing:.05,leg:0,tail:0,lat:0,roll:0,ws:0,ls:0},ap:2,ph:0,v:0,mx:0,mz:0,px:0,pz:0,h:0,init:false,hx:0,hv:0,koT:0,ko:0,down:false,win:false};
+    return{i,g,b,pal:CARD?CARD.pal[i]:PAL[i],name:nm[i],hp,max:hp,atk:8+Math.random()*7,def:3+Math.random()*5,spd:4+Math.random()*6,luck:.05+Math.random()*.12,rig:b.rig,pose:{fwd:0,y:0,lean:0,nz:0,ny:0,wing:.05,leg:0,tail:0,lat:0,roll:0,ws:0,ls:0},ap:2,ph:0,v:0,mx:0,mz:0,px:0,pz:0,h:0,init:false,hx:0,hv:0,koT:0,ko:0,down:false,win:false,en:100,rg2:0,tw:0};
   });
   if(CARD&&CARD.insc){const o=CARD.insc.opp;Object.assign(F[1],{atk:o.atk,def:o.def,spd:o.spd,luck:o.luck,hp:o.hp,max:o.hp});Object.assign(F[0],{atk:11.5,def:5.5,spd:7,luck:.1,hp:100,max:100})}
-  F.forEach(f=>{const t=TR[f.name];if(t){f.atk+=t.f*.4;f.def+=t.d*.3;f.spd+=t.v*.3;f.luck+=t.p*.004}if(f.name==='Magrelo'){f.atk*=.8;f.hp=f.max=Math.round(f.hp*.85)}});
+  F.forEach(f=>{const t=TR[f.name];if(t){f.atk+=t.f*.4;f.def+=t.d*.3;f.spd+=t.v*.3;f.luck+=t.p*.004}if(f.name==='Magrelo'){f.atk*=.8;f.hp=f.max=Math.round(f.hp*.85)}wfx(f)});
   const pw=f=>f.hp*f.atk*(1+f.spd/25)*(1+f.def/30),a=pw(F[0]),c=pw(F[1]);
   odds=[Math.min(6,Math.max(1.15,.92*(a+c)/a)),Math.min(6,Math.max(1.15,.92*(a+c)/c))];
-  pick=0;picked=0;stake=Math.min(stake,maxStake());st="bet";turn=null;rt=0;sheet.visible=true;sheet.position.y=1.2;lv=0;alpha=0;
+  pick=0;picked=0;stake=Math.min(stake,maxStake());st="bet";turn=null;lastAtt=null;streak=0;cnt=null;rt=0;sheet.visible=true;sheet.position.y=1.2;lv=0;alpha=0;
   ["fa","fb"].forEach((id,i)=>{const f=F[i],e=$(id);{const hc=(CARD?CARD.pal[i]:PAL[i]).hud,cc=hc?hex(hc):(i?'#78bdf0':'#f0993f');if(hc)e.style.setProperty('--c',cc);$(i?'sb':'sa').style.setProperty('--c',cc)}
     e.querySelector("b").textContent=f.name;
     e.querySelector("small").textContent="For "+Math.round(f.atk)+" · Def "+Math.round(f.def)+" · Vel "+Math.round(f.spd)});
@@ -575,15 +586,34 @@ $('go').onclick=()=>{
 $('again').onclick=()=>{if(bet&&bet.insc)window.openWeb('minhas');else goHome()};
 
 function nextTurn(){
-  const[A,B]=F,att=Math.random()<A.spd/(A.spd+B.spd)?A:B,def=att===A?B:A;
-  const miss=Math.random()<.1+Math.max(0,def.spd-att.spd)*.012;
+  const[A,B]=F,rnd=Math.random;
+  /* fôlego volta aos poucos; galo ferido (<25%) entra em fúria */
+  F.forEach(f=>{f.en=Math.min(100,f.en+6);if(f.hp<f.max*.25&&!f.rg2){f.rg2=1;say(f.name+" está ferido, mas parte pra cima com tudo!",1)}});
+  /* iniciativa: velocidade x fôlego; quem desviou ganha o contra-golpe; ninguém bate 3 vezes seguidas sem reação */
+  const sc=f=>f.spd*(.6+.4*f.en/100);
+  let att=cnt||(rnd()<sc(A)/(sc(A)+sc(B))?A:B);
+  if(!cnt&&att===lastAtt&&streak>=2&&rnd()<.6)att=att===A?B:A;
+  const def=att===A?B:A,ctr=cnt===att;cnt=null;
+  streak=att===lastAtt?streak+1:1;lastAtt=att;
+  if(att.en<25&&!att.tw){att.tw=1;say(att.name+" está ofegante, perdendo o fôlego")}else if(att.en>60)att.tw=0;
+  /* golpe: [dano, erro extra, custo de fôlego]; cansado só consegue bicada e pegada */
+  const K={peck:[.7,0,6],kick:[1,.04,12],fly:[1.3,.16,18],clinch:[.85,0,10],flurry:[1.6,.04,22]},tired=att.en<30,r=rnd();
+  let kind=ctr?(r<.6?"kick":"peck"):tired?(r<.5?"peck":r<.8?"clinch":"kick"):r<.1?"clinch":r<.24?"fly":r<.4?"peck":"kick";
+  const miss=rnd()<.06+K[kind][1]+Math.max(0,def.spd-att.spd)*.012+(tired?.08:0)-(def.en<30?.08:0);
   let dmg=0,crit=false;
-  if(!miss){dmg=Math.max(2,att.atk*(.75+Math.random()*.5)-def.def*.4);crit=Math.random()<att.luck;if(crit)dmg*=1.6;dmg=Math.round(dmg)}
-  const r=Math.random(),kind=crit?"flurry":r<.1?"clinch":r<.22?"fly":r<.4?"peck":"kick";const isK=kind==="kick"||kind==="flurry",n=kind==="flurry"?3:1+Math.floor(Math.random()*3),endK=.6+2*n*.045;turn={att,def,miss,dmg,crit,kind,n,endK,paid:0,sd:0,hp:isK?endK+.01:.6,T:isK?2.3+.2*n:T,side:Math.random()<.5?-1:1,t:0,hit:false};
+  if(!miss){
+    const rage=att.hp<att.max*.25?1.25:1;
+    dmg=Math.max(2,att.atk*rage*K[kind][0]*(.75+rnd()*.5)*(ctr?1.2:1)-def.def*.4*(def.en<30?.6:1));
+    crit=rnd()<att.luck+(rage>1?.06:0)+(ctr?.06:0);if(crit){dmg*=1.6;kind="flurry"}dmg=Math.round(dmg);
+  }
+  att.en=Math.max(0,att.en-K[kind][2]*(att.cw||1));
+  if(miss&&rnd()<.5)cnt=def;
+  const isK=kind==="kick"||kind==="flurry",n=kind==="flurry"?3:1+Math.floor(rnd()*3),endK=.6+2*n*.045;
+  turn={att,def,miss,dmg,crit,kind,n,endK,paid:0,sd:0,hp:isK?endK+.01:.6,T:isK?2.3+.2*n:T,side:rnd()<.5?-1:1,t:0,hit:false,ctr};
 }
 function finish(w,l){
   if(!l.rg)ragdoll(l,w,'death',false);
-  st="done";turn=null;addWin(w.name);w.win=true;l.down=true;slow=1.4;shk=.6;
+  st="done";turn=null;addWin(w.name);[w,l].forEach(f=>{if(own(f.name))setW(f.name,wOf(f.name)-(f===w?.08:.12))});w.win=true;l.down=true;slow=1.4;shk=.6;
   const won=bet.side===w.i;let msg=w.name+" venceu por nocaute. ";
   if(bet.insc)msg+=window.inscDone(bet.insc,won);else if(won){const net=Math.round(bet.stake*(odds[w.i]-1)),fee=Math.ceil(net*.05);INV[bet.item]+=net-fee;
     msg+="Você ganhou "+(net-fee)+" sacas de "+bet.item.toLowerCase()+" (taxa da casa: "+fee+").";}
@@ -596,10 +626,10 @@ function step(dt){
   if(!turn.miss&&(turn.kind==="kick"||turn.kind==="flurry")){const q=(p-.6)/.045,i=Math.floor(q);if(p>=.6&&i<2*turn.n&&i>=turn.sd&&q-i>.5){turn.sd=i+1;const part=Math.round(turn.dmg*.1);turn.paid+=part;turn.def.hp=Math.max(1,turn.def.hp-part);turn.def.hv=-2.4;burst(turn.def,3);shk=.1}}
   if(!turn.hit&&p>=turn.hp){
     turn.hit=true;const{att,def}=turn;
-    if(turn.miss)say(att.name+" erra o golpe");
-    else{def.hp=Math.max(0,def.hp-(turn.dmg-(turn.paid||0)));glitch();def.hv=turn.crit?-11:-7;shk=turn.crit?.5:.22;burst(def,turn.crit?12:6);
+    if(turn.miss)say(att.name+" erra o golpe e "+def.name+" desvia"+(cnt===def?", pronto pro contra-golpe":""));
+    else{def.hp=Math.max(0,def.hp-(turn.dmg-(turn.paid||0)));glitch();def.hv=turn.crit?-11:-7;shk=turn.crit?.5:.22;burst(def,turn.crit?12:6);if(turn.kind==="clinch")def.en=Math.max(0,def.en-14);
       if(def.hp<=0)ragdoll(def,att,'death',turn.crit);else if(turn.kind==='kick'||turn.kind==='flurry')ragdoll(def,att,'shove',turn.crit);
-      say(turn.crit?att.name+" acerta uma sequência: "+turn.dmg+"!":att.name+" acerta uma "+({peck:"bicada",kick:"esporada",fly:"voadora",clinch:"pegada de peito"})[turn.kind]+": "+turn.dmg,turn.crit)}
+      say(turn.crit?(turn.ctr?"Contra-golpe! ":"")+att.name+" acerta uma sequência: "+turn.dmg+"!":(turn.ctr?"Contra-golpe! ":"")+att.name+" acerta uma "+({peck:"bicada",kick:"esporada",fly:"voadora",clinch:"pegada de peito"})[turn.kind]+": "+turn.dmg,turn.crit)}
   }
   if(turn.kind==="clinch"&&!turn.h2&&p>=.8&&!turn.miss){turn.h2=true;burst(turn.def,6);shk=.2}
   if(p>=1){if(turn.def.rg&&turn.def.rg.kind==='shove')return;if(turn.def.hp<=0)finish(turn.att,turn.def);else nextTurn()}
@@ -841,7 +871,7 @@ function goHome(){inHome=true;document.body.classList.remove('c','s','g','i');do
 function buildHome(){
   const feed=$('feed');feed.innerHTML='';
   for(let i=0;i<8;i++){
-    const [a,b]=NAMES.slice().sort(()=>Math.random()-.5),pi=PALX.slice(0,6).map((_,k)=>k).sort(()=>Math.random()-.5),pal=[a==='Magrelo'?PALX[6]:PALX[pi[0]],b==='Magrelo'?PALX[6]:PALX[pi[1]]],pz=[POSES[i%4],POSES[(i+2)%4]];
+    const nn=NAMES.slice().sort(()=>Math.random()-.5),jj=nn.findIndex((n,k)=>k&&catOf(wOf(n))===catOf(wOf(nn[0]))),[a,b]=[nn[0],nn[jj>0?jj:1]],pi=PALX.slice(0,6).map((_,k)=>k).sort(()=>Math.random()-.5),pal=[a==='Magrelo'?PALX[6]:PALX[pi[0]],b==='Magrelo'?PALX[6]:PALX[pi[1]]],pz=[POSES[i%4],POSES[(i+2)%4]];
     const live=true,tag='ao vivo '+TAGS[i%TAGS.length],ttl=TITLES[i%TITLES.length].replace('{a}',a).replace('{b}',b),ch=CH[i%4],el=document.createElement('a');
     el.href='#';el.className='cd';el.dataset.tag=tag;
     el.innerHTML=`<div class="th" style="--a:${hex(pal[0].hud)}aa;--b:${hex(pal[1].hud)}aa"><canvas width="800" height="450"></canvas><span class="n l">${a}</span><span class="n r">${b}</span><b class="vs">VS</b><em class="du${live?' lv':''}">${live?'AO VIVO':(2+Math.floor(Math.random()*9))+':'+('0'+Math.floor(Math.random()*60)).slice(-2)}</em></div><div class="mt"><i class="av" style="background:${hex(pal[0].hud)};color:#1a1208">${ch[0]}</i><div><h3>${ttl}</h3><p>${ch}${live?' · apostas abertas':''}</p><p>${live?(1+Math.floor(Math.random()*9))+' mil assistindo agora':(3+Math.floor(Math.random()*180))+' mil visualizações · há '+(1+Math.floor(Math.random()*20))+(i%2?' horas':' dias')}</p></div></div>`;
@@ -876,7 +906,7 @@ $('prec').onclick=e=>{if(e.target===$('prec')||e.target===$('prl'))closeRec()};
 /* vitórias e card de estatísticas */
 let WINS={};try{WINS=JSON.parse(localStorage.getItem('gw')||'{}')}catch(e){}
 function addWin(n){WINS[n]=(WINS[n]||0)+1;try{localStorage.setItem('gw',JSON.stringify(WINS))}catch(e){}}
-function statCard(){F.forEach((f,i)=>{const w=WINS[f.name]||0;$('sc'+i).innerHTML='<span>For <b>'+Math.round(f.atk)+'</b> · Def <b>'+Math.round(f.def)+'</b> · Vel <b>'+Math.round(f.spd)+'</b></span><span>🏆 '+w+(w===1?' vitória':' vitórias')+'</span>'})}
+function statCard(){F.forEach((f,i)=>{const w=WINS[f.name]||0;$('sc'+i).innerHTML='<span>For <b>'+Math.round(f.atk)+'</b> · Def <b>'+Math.round(f.def)+'</b> · Vel <b>'+Math.round(f.spd)+'</b> · '+kg(f.w)+' kg '+catOf(f.w)+'</span><span>🏆 '+w+(w===1?' vitória':' vitórias')+'</span>'})}
 /* comentários do vídeo */
 const CU=["Zé do Milho","Maria Penosa","Seu Tonho","Joãozinho da Roça","Dona Cota","Chico Pipoca","Nega do Terreiro","Tião Esporão"];
 const CT=["{a} vai amassar o {b} hoje, apostei tudo!","{b} tá com cara de quem treinou a semana inteira","O lençol nem subiu e eu já tô nervoso","Esse {b} me deve 20 sacas desde a última rinha","Narração perfeita, só falta o café com pão","Primeira vez aqui, me expliquem as sacas","{a} tem esporão de campeão, olha o tamanho!","Meu avô dizia: galo que canta cedo apanha tarde","Aposto feijão no {b}, o arroz fica pra depois","Quem tá assistindo de 2026? 🐔"];
@@ -923,6 +953,20 @@ $('shl').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return
 $('shtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;stab=b.dataset.t;shopRender()};
 window.openShop=()=>{B.remove('p','r','c','g','i');B.add('s');shopRender();if(!recent.includes('shop'))recent.push('shop')};
 $('shopapp').onclick=window.openShop;
+/* peso e alimentação: galos engordam com ração e emagrecem com o tempo e as lutas; categorias Pena, Médio e Pesado */
+const BW={Trovão:2.3,Capitão:2.5,Faísca:2.1,Valentão:2.7,'Pé de Serra':2.6,Cangaceiro:2.4,Relâmpago:2,Sultão:3.1,Mourão:2.9,Tufão:2.2,Magrelo:1.7};
+let GW={};try{GW=JSON.parse(localStorage.getItem('gwt')||'{}')}catch(e){}
+const bw=n=>BW[n]||2.4,kg=w=>w.toFixed(1).replace('.',','),catOf=w=>w<2.2?'Pena':w<2.7?'Médio':'Pesado';
+const own=n=>GALOS.some(g=>g[1]===n&&SH.owned.includes(g[0]));
+function wOf(n){if(!own(n))return bw(n);const g=GW[n]||(GW[n]={w:bw(n),ts:Date.now()});return Math.max(bw(n)-.6,g.w-(Date.now()-g.ts)/36e5*.04)}
+function setW(n,w){GW[n]={w:Math.min(bw(n)+1,Math.max(bw(n)-.6,w)),ts:Date.now()};try{localStorage.setItem('gwt',JSON.stringify(GW))}catch(e){}}
+const forma=n=>{const d=wOf(n)-bw(n);return d>.3?'acima do peso':d<-.3?'magro':'em forma'};
+/* efeito na luta: categoria mais pesada bate e aguenta mais, mas é mais lenta; gordo cansa rápido e perde velocidade; magro perde força e vida */
+function wfx(f){const w=wOf(f.name),d=w-bw(f.name);f.w=w;
+  f.atk+=(w-2.4)*2.5;f.spd-=(w-2.4)*1.5;f.hp=f.max=Math.round(f.max+(w-2.4)*10);
+  if(d>.3){f.spd*=1-Math.min(.3,(d-.3)*.5);f.cw=1+Math.min(.6,(d-.3)*.6)}
+  else if(d<-.3){const k=1-Math.min(.25,(-d-.3)*.6);f.atk*=k;f.hp=f.max=Math.round(f.max*k)}
+  else f.atk*=1.05}
 /* app Galinheiro: pátio com cerca, galinheiro e galos em idle */
 (()=>{
 const cc=$('cc'),box=$('coop'),cr=new THREE.WebGLRenderer({canvas:cc,antialias:true}),PI=Math.PI,S=.5,XM=6.6,ZB=-4.4,ZF=3.2,rnd=Math.random;
@@ -1043,8 +1087,14 @@ function upd(r,dt){
 let sel=0,cx=0,cz=0,snap=1;
 const nm=$('cname'),dots=$('cdots'),hv=new THREE.Vector3();
 const dotsUp=()=>{dots.innerHTML=R.map(()=>'<i></i>').join('')};dotsUp();
-function pick(i){if(!R.length)return;sel=(i+R.length)%R.length;nm.textContent=R[sel].n;box.style.setProperty('--c',hex(R[sel].c));ring.material.color.setHex(R[sel].c);[...dots.children].forEach((e,j)=>e.classList.toggle('on',j===sel))}
+function pick(i){if(!R.length)return;sel=(i+R.length)%R.length;nm.textContent=R[sel].n;box.style.setProperty('--c',hex(R[sel].c));ring.material.color.setHex(R[sel].c);[...dots.children].forEach((e,j)=>e.classList.toggle('on',j===sel));cwUp()}
 $('cprev').onclick=()=>pick(sel-1);$('cnext').onclick=()=>pick(sel+1);
+/* alimentar: ração comum engorda mais; premium engorda menos (mantém o galo no peso da categoria) */
+function cwUp(){const r=R[sel];$('cw').hidden=!r;if(!r)return;const n=r.n,i=SH.items,w=wOf(n);
+  $('cwi').innerHTML='<b>'+kg(w)+' kg</b> · '+catOf(w)+' · '+forma(n)+'<br><small>Ração: '+(i.racao||0)+' comum · '+(i.racaoP||0)+' premium</small>';
+  $('cf1').disabled=!(i.racao>0);$('cf2').disabled=!(i.racaoP>0)}
+const fed=(k,a)=>{const r=R[sel];if(!r||!(SH.items[k]>0))return;SH.items[k]--;setW(r.n,wOf(r.n)+a);saveShop();cwUp()};
+$('cf1').onclick=()=>fed('racao',.15);$('cf2').onclick=()=>fed('racaoP',.1);setInterval(cwUp,5000);cwUp();
 const rc=new THREE.Raycaster(),nd=new THREE.Vector2();let dn=null;
 cc.addEventListener('pointerdown',e=>{dn=[e.clientX,e.clientY]});
 cc.addEventListener('pointerup',e=>{if(!dn||Math.hypot(e.clientX-dn[0],e.clientY-dn[1])>8)return;

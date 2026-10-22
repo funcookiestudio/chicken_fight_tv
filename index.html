@@ -172,6 +172,22 @@ body.r #prec{display:flex}
 #sc>div{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}#sc .r{text-align:right}
 #sc b{color:var(--ink)}#sc span:last-child{opacity:.85}
 
+/* agropecuária */
+body.s #stage,body.s #home,body.s #phone,body.s #coop{display:none}body:not(.s) #shop{display:none}
+#shop{height:100%;overflow-y:auto;background:linear-gradient(#101a18,#15211f);color:var(--ink)}
+#shh{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:#101a18;border-bottom:1px solid var(--line)}
+#shh b{font:400 clamp(18px,5.4vw,22px)/1.2 "Alfa Slab One",Georgia,serif}
+#shc{flex:none;font-weight:600;background:rgba(255,179,71,.16);color:var(--lamp);padding:6px 12px;border-radius:16px}
+#shi{padding:10px 14px 0;font-size:13px;opacity:.8}
+#shtabs{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+#shtabs button{flex:none;min-height:38px;padding:0 14px;border-radius:19px}
+#shl{padding:2px 14px 24px}.shn{opacity:.8;text-align:center;padding:24px 0}
+.shr{display:flex;align-items:center;gap:12px;padding:12px;margin-bottom:10px;border-radius:16px;background:#1b2724;border:1px solid var(--line)}
+.shs{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;font-style:normal}
+.shd{flex:1;min-width:0}.shd b{display:block;font-size:15px}.shd small{display:block;font-size:12.5px;opacity:.75;line-height:1.35}
+.shb{flex:none;min-width:84px;background:var(--lamp);color:#2a1a08;border-color:var(--lamp);font-size:14px}
+#shm{position:fixed;left:50%;bottom:calc(var(--nb) + env(safe-area-inset-bottom,0px) + 14px);transform:translate(-50%,10px);max-width:90%;padding:8px 16px;border-radius:18px;background:rgba(18,26,24,.95);border:1px solid var(--line);font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:5}
+#shm.on{opacity:1;transform:translate(-50%,0)}
 /* tela inicial: papel de parede e dock */
 #psr{align-items:center}#psr input{padding:0 14px 0 10px}
 #phone{isolation:isolate}
@@ -213,6 +229,7 @@ body.c #stage,body.c #home,body.c #phone{display:none}body:not(.c) #coop{display
 <button class="app" id="coopapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0993f"/><stop offset="1" stop-color="#b8431a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g1)"/><ellipse cx="30" cy="62" rx="22" ry="14" fill="#f6ead2"/><circle cx="32" cy="37" r="14" fill="#f6ead2"/><g fill="#d62839"><circle cx="26" cy="21" r="5"/><circle cx="33" cy="18" r="5.5"/><circle cx="40" cy="21" r="5"/><rect x="26" y="21" width="14" height="6"/><ellipse cx="41" cy="49" rx="3.2" ry="5.5"/></g><path d="M45 34l11 4-11 4z" fill="#f0a830"/><circle cx="38" cy="34" r="2.2" fill="#15110f"/></svg></span>Galinheiro</button>
 <button class="app" data-soon><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#2f5a4a"/><rect y="52" width="64" height="12" fill="#c9a46a"/><path d="M12 30L32 12l20 18v22H12z" fill="#b83a26"/><path d="M10 31L32 11l22 20" fill="none" stroke="#6e1d12" stroke-width="3.5" stroke-linejoin="round"/><rect x="25" y="34" width="14" height="18" fill="#8e2a12"/><path d="M25 34l14 18M39 34L25 52" stroke="#f6ead2" stroke-width="2"/><rect x="25" y="34" width="14" height="18" fill="none" stroke="#f6ead2" stroke-width="2"/><rect x="28.5" y="20" width="7" height="6" fill="#f6ead2"/></svg></span>Celeiro</button>
 <button class="app" id="tvapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a27"/><stop offset="1" stop-color="#0c0c0c"/></linearGradient></defs><rect width="64" height="64" fill="url(#g3)"/><path d="M32 17L21 7M32 17L43 7" stroke="#f6ead2" stroke-width="2.2" stroke-linecap="round"/><rect x="10" y="17" width="44" height="31" rx="6" fill="#1a2a28" stroke="#f6ead2" stroke-width="2.5"/><rect x="18" y="21" width="28" height="20" rx="6" fill="#2e9e5b"/><use href="#rm" x="24" y="23" width="16" height="16"/><path d="M20 48l-3 8M44 48l3 8" stroke="#f6ead2" stroke-width="2.5" stroke-linecap="round"/><circle cx="48" cy="43" r="1.8" fill="#ffb347"/></svg></span>TV</button>
+<button class="app" id="shopapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a9a45"/><stop offset="1" stop-color="#2b5a2a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g5)"/><rect y="52" width="64" height="12" fill="#c9a46a"/><rect x="12" y="22" width="40" height="30" fill="#f6ead2"/><polygon points="16,12 24,12 21,22 10,22" fill="#d62839"/><polygon points="24,12 32,12 32,22 21,22" fill="#f6ead2"/><polygon points="32,12 40,12 43,22 32,22" fill="#d62839"/><polygon points="40,12 48,12 54,22 43,22" fill="#f6ead2"/><rect x="10" y="21.5" width="44" height="2" fill="#8e1f2b"/><rect x="40" y="32" width="9" height="20" fill="#8e2a12"/><circle cx="46.5" cy="42" r="1" fill="#f6ead2"/><path d="M21 33h8l-1.5 3h-5z" fill="#a98650"/><ellipse cx="25" cy="44" rx="8.5" ry="9" fill="#c9a46a"/><path d="M25 38v12" stroke="#7a5a2e" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="22.6" cy="42" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(-25 22.6 42)"/><ellipse cx="27.4" cy="42" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(25 27.4 42)"/><ellipse cx="22.6" cy="46.5" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(-25 22.6 46.5)"/><ellipse cx="27.4" cy="46.5" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(25 27.4 46.5)"/></svg></span>Agropecuária</button>
 <button class="app" data-soon><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#66737d"/><stop offset="1" stop-color="#37414a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g4)"/><circle cx="32" cy="32" r="17" fill="none" stroke="#e9e4d6" stroke-width="6" stroke-dasharray="6.675 6.675"/><circle cx="32" cy="32" r="13" fill="#e9e4d6"/><circle cx="32" cy="32" r="5.5" fill="#4a5761"/></svg></span>Configurações</button>
 </nav>
 <div id="dock" aria-label="Favoritos"><button class="app" data-soon aria-label="Telefone"><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#2fb457"/><g transform="translate(14 14) scale(1.5)"><path fill="#fff" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></g></svg></span></button><button class="app" data-soon aria-label="Internet"><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#2f7be0"/><g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><circle cx="32" cy="32" r="16"/><ellipse cx="32" cy="32" rx="7" ry="16"/><path d="M16 32h32M19 23h26M19 41h26"/></g></svg></span></button><button class="app" data-soon aria-label="Mensagens"><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#3c9be8"/><path fill="#fff" d="M14 20a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v16a7 7 0 0 1-7 7H31l-11 9v-9a7 7 0 0 1-6-7z"/><g fill="#3c9be8"><circle cx="24" cy="28" r="2.6"/><circle cx="32" cy="28" r="2.6"/><circle cx="40" cy="28" r="2.6"/></g></svg></span></button><button class="app" data-soon aria-label="Câmera"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b6168"/><stop offset="1" stop-color="#2b2f33"/></linearGradient></defs><rect width="64" height="64" fill="url(#gc)"/><path d="M24 22l3-6h10l3 6z" fill="#e9e4d6"/><rect x="12" y="22" width="40" height="28" rx="6" fill="#e9e4d6"/><circle cx="32" cy="36" r="10" fill="#2a2f33"/><circle cx="32" cy="36" r="6" fill="#3f6a96"/><circle cx="29.5" cy="33.5" r="2" fill="#bcd6ee"/><circle cx="46" cy="27" r="1.8" fill="#d62839"/></svg></span></button></div>
@@ -253,6 +270,7 @@ body.c #stage,body.c #home,body.c #phone{display:none}body:not(.c) #coop{display
 </div>
 </div>
 <div id="coop"><canvas id="cc"></canvas><div id="cname"></div><div id="carr"><button id="cprev" aria-label="Galo anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div id="cdots"></div><button id="cnext" aria-label="Próximo galo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+<div id="shop"><div id="shh"><b>Agropecuária</b><span id="shc"></span></div><div id="shi"></div><nav id="shtabs" aria-label="Seções"><button data-t="galos">Galos</button><button data-t="racao">Ração</button><button data-t="remedios">Remédios</button><button data-t="vender">Vender sacas</button></nav><div id="shl"></div><div id="shm" role="status"></div></div>
 <div id="prec" aria-label="Aplicativos recentes"><div id="prl"></div><button id="prclear">Limpar tudo</button></div>
 <nav id="nav" aria-label="Navegação"><button id="nback" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M16 5L7 12l9 7z"/></svg></button><button id="nhome" aria-label="Minimizar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg></button><button id="nrec" aria-label="Recentes"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/></svg></button></nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -436,7 +454,7 @@ function finish(w,l){
   if(won){const net=Math.round(bet.stake*(odds[w.i]-1)),fee=Math.ceil(net*.05);INV[bet.item]+=net-fee;
     msg+="Você ganhou "+(net-fee)+" sacas de "+bet.item.toLowerCase()+" (taxa da casa: "+fee+").";}
   else{INV[bet.item]-=bet.stake;msg+="Você perdeu "+bet.stake+" sacas de "+bet.item.toLowerCase()+".";}
-  $('rtxt').textContent=msg;$('again').hidden=false;say(w.name+" venceu!",true);
+  saveShop();$('rtxt').textContent=msg;$('again').hidden=false;say(w.name+" venceu!",true);
 }
 function step(dt){
   if(st!=="fight"||!turn)return;
@@ -648,7 +666,7 @@ function director(dt){
   fx+=(tx-fx)*k;fh+=(th-fh)*k;
 }
 let last=performance.now(),time=0;
-function tick(now){if(inHome||document.body.classList.contains('p')||document.body.classList.contains('r')||document.body.classList.contains('c')){last=now;requestAnimationFrame(tick);return}
+function tick(now){if(inHome||document.body.classList.contains('p')||document.body.classList.contains('r')||document.body.classList.contains('c')||document.body.classList.contains('s')){last=now;requestAnimationFrame(tick);return}
   const raw=Math.min((now-last)/1000,.05);last=now;slow=Math.max(0,slow-raw);const dt=raw*(slow>0?.35:1);time+=dt;
   step(dt);
   sheetLogic(dt);animate(dt);
@@ -684,7 +702,7 @@ function thumb(cv,pals,pz){
 }
 const TITLES=['AO VIVO: {a} x {b}','{a} vs {b}: quem leva o saco?','{a} contra {b} | rinha ao vivo','{a} e {b} | apostas abertas agora','{a} x {b} | final do terreiro ao vivo','{a} x {b}: a luta mais falada da roça'],CH=['Terreiro TV','Arena da Roça','Rinha Oficial','Canal do Galpão'],TAGS=['nocautes','revanches','em alta','nocautes','revanches','em alta','nocautes'];
 let CARD=null,inHome=true;
-function goHome(){inHome=true;document.body.classList.remove('c');document.body.classList.add('h')}
+function goHome(){inHome=true;document.body.classList.remove('c','s');document.body.classList.add('h')}
 function buildHome(){
   const feed=$('feed');feed.innerHTML='';
   for(let i=0;i<8;i++){
@@ -699,7 +717,7 @@ function buildHome(){
 $('back').onclick=goHome;$('wsub').onclick=e=>{const b=e.currentTarget,on=b.classList.toggle('on');b.textContent=on?'Inscrito':'Inscrever-se'};
 $('chips').onclick=e=>{const c=e.target.closest('button');if(!c)return;[...$('chips').children].forEach(x=>x.setAttribute('aria-pressed',x===c));[...$('feed').children].forEach(a=>a.hidden=c.dataset.t!=='tudo'&&!a.dataset.tag.includes(c.dataset.t))};
 $('q').oninput=e=>{const v=e.target.value.toLowerCase();[...$('feed').children].forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(v))};
-function goPhone(){$('pq').value='';$('pq').oninput({target:$('pq')});document.body.classList.remove('c');document.body.classList.add('p')}
+function goPhone(){$('pq').value='';$('pq').oninput({target:$('pq')});document.body.classList.remove('c','s');document.body.classList.add('p')}
 let tt;function toast(t){const e=$('ptoast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1400)}
 document.querySelectorAll('.app[data-soon]').forEach(a=>a.onclick=()=>{const i=a.firstChild;i.classList.remove('wg');void i.offsetWidth;i.classList.add('wg');toast('Em breve')});
 function pclock(){$('pst').textContent=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}
@@ -707,15 +725,15 @@ pclock();setInterval(pclock,10000);
 $('pq').oninput=e=>{const v=e.target.value.trim().toLowerCase();document.querySelectorAll('#pgrid .app').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(v))};
 /* navegação do celular */
 const B=document.body.classList;let recent=[];
-function openTV(){B.remove('p','r','c');if(!recent.includes('tv'))recent.push('tv')}
+function openTV(){B.remove('p','r','c','s');if(!recent.includes('tv'))recent.push('tv')}
 function closeRec(){B.remove('r')}
-const APPS={tv:['tvapp','TV',()=>openTV()],coop:['coopapp','Galinheiro',()=>window.openCoop()]};
+const APPS={tv:['tvapp','TV',()=>openTV()],coop:['coopapp','Galinheiro',()=>window.openCoop()],shop:['shopapp','Agropecuária',()=>window.openShop()]};
 function drawRec(){const l=$('prl');l.innerHTML='';
   recent.forEach(k=>{const[id,n,fn]=APPS[k],c=document.createElement('button');c.className='rc';c.appendChild($(id).firstChild.cloneNode(true));c.append(n);c.onclick=fn;l.appendChild(c)});
   if(!recent.length){const e=document.createElement('p');e.id='prempty';e.textContent='Nenhum app recente';l.appendChild(e)}
   $('prclear').hidden=!recent.length}
 $('tvapp').onclick=openTV;
-$('nback').onclick=()=>{if(B.contains('r'))closeRec();else if(B.contains('p'))return;else if(B.contains('c'))goPhone();else if(B.contains('h'))goPhone();else goHome()};
+$('nback').onclick=()=>{if(B.contains('r'))closeRec();else if(B.contains('p'))return;else if(B.contains('c')||B.contains('s'))goPhone();else if(B.contains('h'))goPhone();else goHome()};
 $('nhome').onclick=()=>{closeRec();goPhone()};
 $('nrec').onclick=()=>{if(B.contains('r')){closeRec();return}drawRec();B.add('r')};
 $('prclear').onclick=()=>{recent=[];drawRec()};
@@ -739,6 +757,37 @@ function buildComments(){
   CT.slice().sort(()=>Math.random()-.5).slice(0,7).forEach((t,i)=>addCm(us[i%us.length],t.replace(/\{a\}/g,a).replace(/\{b\}/g,b),'há '+(1+i*2+Math.floor(Math.random()*3))+' min',Math.floor(Math.random()*400),0));cmCount()}
 function sendCm(){const v=$('cmi').value.trim();if(!v)return;addCm('Você',v,'agora',0,1);$('cmi').value=''}
 $('cms').onclick=sendCm;$('cmi').onkeydown=e=>{if(e.key==='Enter')sendCm()};
+/* Agropecuária: moedas, galos, ração e remédios */
+let SH={coins:100,owned:[0,1],items:{}};
+try{const s=JSON.parse(localStorage.getItem('gshop')||'null');if(s){SH=Object.assign(SH,s);if(s.inv)Object.assign(INV,s.inv)}}catch(e){}
+function saveShop(){try{SH.inv=INV;localStorage.setItem('gshop',JSON.stringify(SH))}catch(e){}}
+const GALOS=[[2,'Faísca',120,'Penas claras e asa vermelha, vive agitado.'],[3,'Valentão',150,'Plumagem negra com brilho verde.'],[4,'Pé de Serra',180,'Vermelho forte, veterano do terreiro.'],[5,'Cangaceiro',220,'Roxo e turquesa, o mais vistoso do galinheiro.']];
+const SHOP={racao:[['racao','Ração comum','Saco com 5 porções.',20,5,'🌽'],['racaoP','Ração premium','Milho selecionado, 5 porções.',50,5,'🌾']],
+ remedios:[['vit','Vitamina','Reforça as penas e a disposição. 1 dose.',25,1,'💊'],['verm','Vermífugo','Contra vermes. 1 dose.',30,1,'🧪'],['anti','Antibiótico','Para infecções. 1 dose.',60,1,'💉'],['pom','Pomada cicatrizante','Para ferimentos de rinha. 1 dose.',20,1,'🩹']]};
+const PRICE={Feijão:4,Arroz:3,Batata:2,Trigo:3},EM={Feijão:'🫘',Arroz:'🍚',Batata:'🥔',Trigo:'🌾'};
+let stab='galos',smt;
+function shm(t){const e=$('shm');e.textContent=t;e.classList.add('on');clearTimeout(smt);smt=setTimeout(()=>e.classList.remove('on'),1800)}
+const rowH=(sw,bg,n,d,btn)=>'<div class="shr"><i class="shs" style="background:'+bg+'">'+sw+'</i><div class="shd"><b>'+n+'</b><small>'+d+'</small></div>'+btn+'</div>';
+const btnH=(a,txt,off)=>'<button class="shb" data-a="'+a+'"'+(off?' disabled':'')+'>'+txt+'</button>';
+function shopRender(){
+  const it=k=>SH.items[k]||0;
+  $('shc').textContent='🪙 '+SH.coins;
+  $('shi').textContent='Ração: '+(it('racao')+it('racaoP'))+' · Remédios: '+(it('vit')+it('verm')+it('anti')+it('pom'))+' · Galos: '+SH.owned.length;
+  [...$('shtabs').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===stab));
+  let s='';
+  if(stab==='galos'){const left=GALOS.filter(g=>!SH.owned.includes(g[0]));
+    s=left.length?left.map(([i,n,p,d])=>rowH('🐓',hex(PALX[i].hud),n,d+' Preço: '+p+' moedas.',btnH('g'+i,'🪙 '+p,SH.coins<p))).join(''):'<p class="shn">Você já tem todos os galos! Visite o Galinheiro.</p>'}
+  else if(stab==='vender')s=KEYS.map(k=>rowH(EM[k],'#2b3a35',k,'Estoque: '+INV[k]+' sacas · '+PRICE[k]+' moedas cada.',btnH('s'+k,'Vender 5 · 🪙 '+5*PRICE[k],INV[k]<5))).join('');
+  else s=SHOP[stab].map(([id,n,d,p,q,e])=>rowH(e,'#2b3a35',n,d+' Você tem: '+it(id)+'.',btnH('b'+id,'🪙 '+p,SH.coins<p))).join('');
+  $('shl').innerHTML=s}
+$('shl').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const a=b.dataset.a,k=a.slice(1);
+  if(a[0]==='g'){const g=GALOS.find(x=>x[0]===+k);if(!g||SH.coins<g[2]||SH.owned.includes(g[0]))return;SH.coins-=g[2];SH.owned.push(g[0]);window.coopAdd(g[0]);shm(g[1]+' agora está no seu galinheiro!')}
+  else if(a[0]==='b'){const x=[...SHOP.racao,...SHOP.remedios].find(y=>y[0]===k);if(!x||SH.coins<x[3])return;SH.coins-=x[3];SH.items[k]=(SH.items[k]||0)+x[4];shm('Comprou '+x[1]+'.')}
+  else{if(INV[k]<5)return;INV[k]-=5;SH.coins+=5*PRICE[k];shm('Vendeu 5 sacas de '+k.toLowerCase()+'.')}
+  saveShop();shopRender()};
+$('shtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;stab=b.dataset.t;shopRender()};
+window.openShop=()=>{B.remove('p','r','c');B.add('s');shopRender();if(!recent.includes('shop'))recent.push('shop')};
+$('shopapp').onclick=window.openShop;
 /* app Galinheiro: pátio com cerca, galinheiro e galos em idle */
 (()=>{
 const cc=$('cc'),box=$('coop'),cr=new THREE.WebGLRenderer({canvas:cc,antialias:true}),PI=Math.PI,S=.5,XM=6.6,ZB=-4.4,ZF=3.2,rnd=Math.random;
@@ -789,11 +838,12 @@ const OB=[[-4.3,-3.5,2.2],[2.6,-2.3,.8],[4.4,-1.2,.7],[5.6,-3.9,1]];
 /* galos */
 const NM=["Trovão","Capitão","Faísca","Valentão","Pé de Serra","Cangaceiro"],SP=[[-2,-.5],[0,1.2],[2.8,.9],[-5,1.4],[5.2,1.3],[-1,-2.6]];
 const SM=new THREE.MeshBasicMaterial({color:0x1d2a14,transparent:true,opacity:.3});
-const R=PALX.slice(0,6).map((p,i)=>{
+const mk=i=>{const p=PALX[i];
   const g=new THREE.Group(),b=makeBird(p),sd=new THREE.Mesh(new THREE.CircleGeometry(.8,14),SM);
   b.scale.setScalar(S);sd.rotation.x=-PI/2;sd.position.y=.03;sd.scale.x=1.3;g.add(b,sd);cs.add(g);
   return{i,g,b,r:b.rig,n:NM[i],c:p.hud,x:SP[i][0],z:SP[i][1],h:rnd()*6.28,s:'stand',t:0,d:1+rnd()*2,v:0,ph:rnd()*6,nl:0,lk:0,up:0,sd:1,nb:1+rnd()*4,bt:-9,P:{nz:-.1,ny:0,wing:.05,fa:0,tail:-.05,lean:0,y:0,ls:0}};
-});
+};
+const R=SH.owned.map(mk);
 const ring=new THREE.Mesh(new THREE.RingGeometry(.9,1.05,28),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.6,side:THREE.DoubleSide}));ring.rotation.x=-PI/2;cs.add(ring);
 
 /* comportamento: olhar em volta, andar, bicar, ciscar, se limpar, cantar e bater asas */
@@ -857,7 +907,7 @@ function upd(r,dt){
 /* interface: nome sobre a cabeça, setas embaixo, toque no galo para selecionar */
 let sel=0,cx=0,cz=0,snap=1;
 const nm=$('cname'),dots=$('cdots'),hv=new THREE.Vector3();
-dots.innerHTML=R.map(()=>'<i></i>').join('');
+const dotsUp=()=>{dots.innerHTML=R.map(()=>'<i></i>').join('')};dotsUp();
 function pick(i){sel=(i+R.length)%R.length;nm.textContent=R[sel].n;box.style.setProperty('--c',hex(R[sel].c));ring.material.color.setHex(R[sel].c);[...dots.children].forEach((e,j)=>e.classList.toggle('on',j===sel))}
 $('cprev').onclick=()=>pick(sel-1);$('cnext').onclick=()=>pick(sel+1);
 const rc=new THREE.Raycaster(),nd=new THREE.Vector2();let dn=null;
@@ -876,8 +926,9 @@ function frame(dt){
   hv.set(s.x,2.9,s.z);hv.project(cam);
   nm.style.transform=`translate(${(hv.x*.5+.5)*w}px,${(-hv.y*.5+.5)*h}px) translate(-50%,-100%)`;
 }
-window.openCoop=()=>{B.remove('p','r');B.add('c');if(!recent.includes('coop'))recent.push('coop')};
+window.openCoop=()=>{B.remove('p','r','s');B.add('c');if(!recent.includes('coop'))recent.push('coop')};
 $('coopapp').onclick=window.openCoop;
+window.coopAdd=i=>{if(R.some(r=>r.i===i))return;const r=mk(i);R.push(r);next(r);dotsUp();pick(sel)};
 R.forEach(r=>next(r));pick(0);
 let last=performance.now();
 (function loop(now){requestAnimationFrame(loop);

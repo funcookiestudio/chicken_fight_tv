@@ -300,6 +300,107 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 #wtoast{position:absolute;left:50%;bottom:16px;z-index:5;max-width:90%;padding:8px 16px;border-radius:18px;background:rgba(18,26,24,.95);border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:14px;text-align:center;opacity:0;transform:translate(-50%,10px);pointer-events:none;transition:opacity .2s,transform .2s}
 #wtoast.on{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){#wtoast{transition:none}}
+/* app Bicho: banca de apostas atrelada às lutas e à economia (moedas e sacas) */
+body.b #stage,body.b #home,body.b #phone,body.b #coop,body.b #shop,body.b #gym,body.b #web{display:none}body:not(.b) #bicho{display:none}
+#bicho{position:relative;height:100%;display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(#101a18,#15211f);color:var(--ink)}
+#bicho h2,#bicho h3,#bicho p{margin:0}
+#bi-h{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:#101a18;border-bottom:1px solid var(--line)}
+#bi-h b{font:400 clamp(18px,5.4vw,22px)/1.2 "Alfa Slab One",Georgia,serif}
+#bi-sal{flex:none;font-weight:600;background:rgba(255,179,71,.16);color:var(--lamp);padding:6px 12px;border-radius:16px}
+#bi-nx{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;font-size:13px;line-height:1.3;background:rgba(255,179,71,.08);border-bottom:1px solid var(--line)}
+#bi-nxt{flex:1;min-width:0}
+#bi-nxt b{color:var(--lamp);font-variant-numeric:tabular-nums}
+#bi-tv{flex:none;min-height:34px;padding:0 12px;border-radius:17px;font-size:13px}
+#bi-tabs{flex:none;display:flex;gap:8px;overflow-x:auto;padding:10px 14px;scrollbar-width:none}
+#bi-tabs button{flex:none;min-height:38px;padding:0 12px;border-radius:19px;font-size:14px}
+#bi-sc{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0 14px 20px}
+#bicho .bi-h2{margin:18px 0 8px;font:400 15px/1.2 "Alfa Slab One",Georgia,serif;color:var(--lamp)}
+.bi-tip{margin-top:8px;font-size:12.5px;line-height:1.4;opacity:.72}
+.bi-seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:4px;border-radius:14px;background:#1b2724;border:1px solid var(--line)}
+.bi-seg button{min-height:40px;padding:0 2px;border:0;border-radius:10px;background:none;font-size:13.5px}
+#bicho .bi-seg button[aria-pressed="true"]{background:var(--ink);color:#15211f}
+#bi-pal{display:none;margin-top:2px;padding:10px 12px;border-radius:14px;background:#1b2724;border:1px solid var(--line);font-size:13.5px;line-height:1.4}
+#bi-pal.on{display:flex;align-items:center;gap:10px}
+#bi-pal span{flex:1;min-width:0}
+#bi-pal button{flex:none;min-height:36px;padding:0 14px;border-radius:18px;font-size:13px;background:var(--lamp);color:#2a1a08;border-color:var(--lamp)}
+#bi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.bi-an{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:88px;padding:6px 2px;border:2px solid transparent;border-radius:14px;background:#1b2724}
+.bi-an .e{font-size:28px;line-height:1.15}
+.bi-an b{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10.5px;line-height:1.2}
+.bi-an small{font-size:9.5px;opacity:.65;white-space:nowrap}
+#bicho .bi-an[aria-pressed="true"]{background:#2a3b34;color:var(--ink);border-color:var(--lamp)}
+#bi-slots{display:flex;gap:8px;justify-content:center;margin:4px 0}
+.bi-slot{width:54px;height:64px;display:grid;place-items:center;border-radius:14px;background:#1b2724;border:2px solid var(--line);font:400 30px/1 "Alfa Slab One",Georgia,serif}
+.bi-slot.cur{border-color:var(--lamp)}
+#bi-pick{min-height:26px;text-align:center;font-weight:600;color:var(--lamp)}
+#bi-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+#bi-pad button{min-height:52px;font:400 22px/1 "Alfa Slab One",Georgia,serif;border-radius:14px;background:#1b2724}
+.bi-chips{display:flex;gap:8px;flex-wrap:wrap}
+.bi-chips button{min-height:44px;padding:0 16px;border-radius:22px}
+#bi-cur button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-height:50px;padding:0 14px;line-height:1.2}
+#bi-cur small{font-weight:400;font-size:11px;opacity:.75}
+.bi-opt{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bi-opt button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-height:58px;padding:8px 12px;text-align:left;border-radius:14px;background:#1b2724;border:2px solid transparent}
+.bi-opt small{font-size:12px;font-weight:400;opacity:.75}
+#bicho .bi-opt button[aria-pressed="true"]{background:#2a3b34;color:var(--ink);border-color:var(--lamp)}
+#bi-foot{flex:none;padding:10px 14px 12px;background:rgba(16,26,24,.96);border-top:1px solid var(--line)}
+#bi-go{width:100%;min-height:56px;padding:6px 14px;border-radius:28px;background:var(--lamp);color:#2a1a08;border-color:var(--lamp);font-size:16px;line-height:1.25}
+#bi-go small{display:block;font-weight:400;font-size:12px;opacity:.85}
+.bi-ex{margin-bottom:12px;padding:12px;border-radius:16px;background:#1b2724;border:1px solid var(--line)}
+.bi-ex header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:3px}
+.bi-ex h3{font:400 15px/1.2 "Alfa Slab One",Georgia,serif}
+.bi-ex time{font-size:11.5px;opacity:.6;white-space:nowrap}
+.bi-ex p{font-size:12.5px;opacity:.8;line-height:1.35}
+.bi-pz{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:10px;text-align:center}
+.bi-pz div{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0}
+.bi-pz .e{font-size:22px;line-height:1.2}
+.bi-pz .nm{font:400 13.5px/1.2 "Alfa Slab One",Georgia,serif}
+.bi-pz small{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9.5px;opacity:.65;line-height:1.2}
+.bi-tag{display:inline-block;margin:6px 6px 0 0;padding:2px 8px;border-radius:10px;background:rgba(255,179,71,.18);color:var(--lamp);font-size:11.5px;font-weight:600}
+.bi-hot{margin:4px 0 12px;padding:12px;border-radius:16px;background:#1b2724;border:1px solid var(--line);font-size:13px;line-height:1.5}
+.bi-hot b{font-weight:600}
+.bi-empty{padding:40px 10px;text-align:center;opacity:.7;line-height:1.5}
+.bi-stats{display:flex;gap:8px;margin:6px 0 4px}
+.bi-stats div{flex:1;min-width:0;padding:10px 4px;border-radius:14px;background:#1b2724;border:1px solid var(--line);text-align:center}
+.bi-stats b{display:block;font:400 17px/1.15 "Alfa Slab One",Georgia,serif}
+.bi-stats span{font-size:11px;opacity:.7}
+.bi-tk{display:flex;align-items:center;gap:12px;margin-bottom:10px;padding:12px 14px;border-radius:6px;background:#f6ead2;color:#2a1a08;border-left:6px dashed #b83a26;box-shadow:0 2px 0 #c9a46a}
+.bi-tk>div:first-child{flex:1;min-width:0}
+.bi-tk b{display:block;font-size:15px}
+.bi-tk small{display:block;margin-top:2px;font-size:12px;line-height:1.35;opacity:.75}
+.bi-tr{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.bi-wait{font-size:12px;font-weight:600;color:#7a4a00}
+#bicho .bi-tk button{min-height:32px;padding:0 12px;border-radius:16px;background:none;color:#8e2a12;border:1px solid #b83a26;font-size:12.5px}
+.bi-w{font:400 17px/1.1 "Alfa Slab One",Georgia,serif;color:#1f5a2a}.bi-l{font:400 17px/1.1 "Alfa Slab One",Georgia,serif;color:#a3281a}
+.bi-card{margin-bottom:10px;padding:12px 14px;border-radius:16px;background:#1b2724;border:1px solid var(--line);font-size:13.5px;line-height:1.5}
+.bi-card+.bi-card{margin-top:-2px}
+.bi-pay{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;margin-bottom:6px;border-radius:12px;background:#1b2724;border:1px solid var(--line)}
+.bi-pay b{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;color:var(--lamp)}
+.bi-gl{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:13px;line-height:1.35}
+#bi-sheet{position:absolute;inset:0;z-index:6;display:none;flex-direction:column;gap:6px;padding:18px 14px 14px;background:linear-gradient(#101a18,#15211f)}
+#bi-sheet.on{display:flex}
+#bi-shh{font:400 24px/1.15 "Alfa Slab One",Georgia,serif}
+#bi-shsub{font-size:13.5px;opacity:.8;line-height:1.35}
+#bi-draw{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;margin:10px 0;overflow-y:auto}
+.bi-pr{position:relative;flex:none;display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:16px;background:#1b2724;border:2px solid var(--line);opacity:.15}
+.bi-pr.show{opacity:1}
+.bi-pr.hit{border-color:var(--lamp);background:#2a3b34}
+.bi-pr.hit::after{content:"acertou";position:absolute;right:12px;bottom:-9px;padding:0 8px;border-radius:9px;background:var(--lamp);color:#2a1a08;font-size:11.5px;font-weight:600;line-height:18px}
+.bi-pr .e{font-size:30px;line-height:1.1}
+.bi-pr .nm{font:400 24px/1.1 "Alfa Slab One",Georgia,serif;letter-spacing:.05em}
+.bi-pr small{font-size:12.5px;opacity:.7}
+.bi-pr .n{margin-left:auto;font-size:13px;opacity:.75;text-align:right}
+#bi-out{min-height:84px;text-align:center}
+#bi-out .big{font:400 22px/1.2 "Alfa Slab One",Georgia,serif}
+#bi-out .win{color:var(--lamp)}#bi-out .lose{color:#ff9a8a}
+#bi-out p{margin-top:6px;font-size:13.5px;line-height:1.4;opacity:.85}
+#bi-close{flex:none;min-height:52px;border-radius:26px;background:var(--lamp);color:#2a1a08;border-color:var(--lamp);font-size:16px}
+@media (prefers-reduced-motion:no-preference){.bi-pr{transition:opacity .3s,transform .3s;transform:translateY(8px)}.bi-pr.show{transform:none}}
+#bi-toast{position:absolute;left:50%;bottom:92px;z-index:7;max-width:90%;padding:8px 16px;border-radius:18px;background:rgba(18,26,24,.95);border:1px solid var(--line);font-weight:600;font-size:14px;text-align:center;opacity:0;transform:translate(-50%,10px);pointer-events:none;transition:.2s}
+#bi-toast.on{opacity:1;transform:translate(-50%,0)}
+/* ícone na tela inicial: bolinha com o número de extrações novas */
+#bichoapp{position:relative}
+#bichoapp[data-n]::after{content:attr(data-n);position:absolute;top:-5px;right:calc(50% - 41px);min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:10px;background:#d92b2b;color:#fff;font:700 12px/20px "Outfit",system-ui,sans-serif;text-align:center;text-shadow:none;box-shadow:0 0 0 2px #101a18}
 </style>
 </head>
 <body class="h p"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="rm" viewBox="0 0 24 24"><path d="M5 22L6 16L8 12.5L12 15L15 18L13 22Z" fill="#c4b793"/><path d="M12 15L15 18L13 22H9Z" fill="#a99c7e"/><path d="M8 9L8.5 4.5L10.5 6.5L12 3L14 6.5L16 4L16.5 9Z" fill="#e63946"/><path d="M12 3L14 6.5L12.5 9H10.5Z" fill="#b3202e"/><path d="M8 9H16.5L17.5 13L12 15L8 12.5Z" fill="#e4d6b8"/><path d="M12 9H16.5L17.5 13L14 12Z" fill="#fff8e6"/><path d="M17.5 10.5L22 12.5L17.5 14Z" fill="#d6c9a6"/><path d="M17.5 12.5H22L17.5 14Z" fill="#a99c7e"/><path d="M14 14L16.2 14.4L15 18Z" fill="#e63946"/><path d="M13 10.2H15.3L14.2 12Z" fill="#0f3d1f"/></symbol></svg>
@@ -312,6 +413,7 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 <button class="app" id="tvapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a27"/><stop offset="1" stop-color="#0c0c0c"/></linearGradient></defs><rect width="64" height="64" fill="url(#g3)"/><path d="M32 17L21 7M32 17L43 7" stroke="#f6ead2" stroke-width="2.2" stroke-linecap="round"/><rect x="10" y="17" width="44" height="31" rx="6" fill="#1a2a28" stroke="#f6ead2" stroke-width="2.5"/><rect x="18" y="21" width="28" height="20" rx="6" fill="#2e9e5b"/><use href="#rm" x="24" y="23" width="16" height="16"/><path d="M20 48l-3 8M44 48l3 8" stroke="#f6ead2" stroke-width="2.5" stroke-linecap="round"/><circle cx="48" cy="43" r="1.8" fill="#ffb347"/></svg></span>TV</button>
 <button class="app" id="shopapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a9a45"/><stop offset="1" stop-color="#2b5a2a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g5)"/><rect y="52" width="64" height="12" fill="#c9a46a"/><rect x="12" y="22" width="40" height="30" fill="#f6ead2"/><polygon points="16,12 24,12 21,22 10,22" fill="#d62839"/><polygon points="24,12 32,12 32,22 21,22" fill="#f6ead2"/><polygon points="32,12 40,12 43,22 32,22" fill="#d62839"/><polygon points="40,12 48,12 54,22 43,22" fill="#f6ead2"/><rect x="10" y="21.5" width="44" height="2" fill="#8e1f2b"/><rect x="40" y="32" width="9" height="20" fill="#8e2a12"/><circle cx="46.5" cy="42" r="1" fill="#f6ead2"/><path d="M21 33h8l-1.5 3h-5z" fill="#a98650"/><ellipse cx="25" cy="44" rx="8.5" ry="9" fill="#c9a46a"/><path d="M25 38v12" stroke="#7a5a2e" stroke-width="1.2" stroke-linecap="round"/><ellipse cx="22.6" cy="42" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(-25 22.6 42)"/><ellipse cx="27.4" cy="42" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(25 27.4 42)"/><ellipse cx="22.6" cy="46.5" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(-25 22.6 46.5)"/><ellipse cx="27.4" cy="46.5" rx="1.4" ry="2.2" fill="#e0b13a" transform="rotate(25 27.4 46.5)"/></svg></span>Agropecuária</button>
 <button class="app" id="gymapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9a441"/><stop offset="1" stop-color="#8e4a1a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g6)"/><rect y="52" width="64" height="12" fill="#c9a46a"/><rect x="30" y="38" width="4" height="16" fill="#6b4a2f"/><ellipse cx="32" cy="36" rx="14" ry="11" fill="#f3d675"/><circle cx="22" cy="22" r="7" fill="#f3d675"/><path d="M15 22l-6 3 6 2z" fill="#b8741a"/><path d="M18 16l3-5 3 5zM22 15l3-6 3 6z" fill="#d62839"/><circle cx="20" cy="21" r="1.4" fill="#15110f"/><path d="M42 30l10-12 2 14zM41 36l13-2-3 10z" fill="#e0b13a"/><path d="M19 36h26" stroke="#7a5430" stroke-width="2.5"/></svg></span>Treino</button>
+<button class="app" id="bichoapp"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="gb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fa05a"/><stop offset="1" stop-color="#1d5a34"/></linearGradient></defs><rect width="64" height="64" fill="url(#gb1)"/><g fill="#c8721a"><circle cx="32" cy="31" r="17"/><circle cx="49.0" cy="31.0" r="7"/><circle cx="45.8" cy="41.0" r="7"/><circle cx="37.3" cy="47.2" r="7"/><circle cx="26.7" cy="47.2" r="7"/><circle cx="18.2" cy="41.0" r="7"/><circle cx="15.0" cy="31.0" r="7"/><circle cx="18.2" cy="21.0" r="7"/><circle cx="26.7" cy="14.8" r="7"/><circle cx="37.3" cy="14.8" r="7"/><circle cx="45.8" cy="21.0" r="7"/></g><g fill="#f3d675"><circle cx="21" cy="19" r="4.5"/><circle cx="43" cy="19" r="4.5"/><circle cx="32" cy="32" r="13"/></g><g fill="#15110f"><circle cx="27" cy="29" r="1.9"/><circle cx="37" cy="29" r="1.9"/></g><path d="M29 34h6l-3 4z" fill="#8e2a12"/><path d="M32 38v2M28.5 41q3.5 2.5 7 0" fill="none" stroke="#8e2a12" stroke-width="1.6" stroke-linecap="round"/></svg></span>Bicho</button>
 <button class="app" data-soon><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#66737d"/><stop offset="1" stop-color="#37414a"/></linearGradient></defs><rect width="64" height="64" fill="url(#g4)"/><circle cx="32" cy="32" r="17" fill="none" stroke="#e9e4d6" stroke-width="6" stroke-dasharray="6.675 6.675"/><circle cx="32" cy="32" r="13" fill="#e9e4d6"/><circle cx="32" cy="32" r="5.5" fill="#4a5761"/></svg></span>Configurações</button>
 </nav>
 <div id="dock" aria-label="Favoritos"><button class="app" data-soon aria-label="Telefone"><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#2fb457"/><g transform="translate(14 14) scale(1.5)"><path fill="#fff" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></g></svg></span></button><button class="app" id="webapp" aria-label="Internet"><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#2f7be0"/><g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><circle cx="32" cy="32" r="16"/><ellipse cx="32" cy="32" rx="7" ry="16"/><path d="M16 32h32M19 23h26M19 41h26"/></g></svg></span></button><button class="app" data-soon aria-label="Mensagens"><span class="ic"><svg viewBox="0 0 64 64"><rect width="64" height="64" fill="#3c9be8"/><path fill="#fff" d="M14 20a7 7 0 0 1 7-7h22a7 7 0 0 1 7 7v16a7 7 0 0 1-7 7H31l-11 9v-9a7 7 0 0 1-6-7z"/><g fill="#3c9be8"><circle cx="24" cy="28" r="2.6"/><circle cx="32" cy="28" r="2.6"/><circle cx="40" cy="28" r="2.6"/></g></svg></span></button><button class="app" data-soon aria-label="Câmera"><span class="ic"><svg viewBox="0 0 64 64"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b6168"/><stop offset="1" stop-color="#2b2f33"/></linearGradient></defs><rect width="64" height="64" fill="url(#gc)"/><path d="M24 22l3-6h10l3 6z" fill="#e9e4d6"/><rect x="12" y="22" width="40" height="28" rx="6" fill="#e9e4d6"/><circle cx="32" cy="36" r="10" fill="#2a2f33"/><circle cx="32" cy="36" r="6" fill="#3f6a96"/><circle cx="29.5" cy="33.5" r="2" fill="#bcd6ee"/><circle cx="46" cy="27" r="1.8" fill="#d62839"/></svg></span></button></div>
@@ -355,6 +457,36 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 <div id="shop"><div id="shh"><b>Agropecuária</b><span id="shc"></span></div><div id="shi"></div><nav id="shtabs" aria-label="Seções"><button data-t="galos">Galos</button><button data-t="racao">Ração</button><button data-t="remedios">Remédios</button><button data-t="vender">Vender sacas</button></nav><div id="shl"></div><div id="shm" role="status"></div></div>
 <div id="gym"><div id="gcw"><canvas id="gcv"></canvas><div id="glog" role="status"></div></div><div id="gpn"><div id="gsel"><button id="gprev" aria-label="Galo anterior">‹</button><div class="gi"><b id="gnm"></b><i class="bar"><u id="gen"></u></i><small id="gst"></small></div><button id="gnext" aria-label="Próximo galo">›</button></div><div id="gsk"></div><button id="gtr">Treinar</button></div></div>
 <div id="web"><div id="wbar"><button id="wrel" aria-label="Atualizar página">↻</button><div id="wurl"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span id="wurlt"></span></div><span id="wcoins"></span></div><div id="wpg"></div><div id="wtoast" role="status"></div></div>
+<div id="bicho">
+<div id="bi-h"><b>🦁 Bicho</b><span id="bi-sal"></span></div>
+<div id="bi-nx"><span id="bi-nxt"></span><button id="bi-tv">📺 Ver luta</button></div>
+<nav id="bi-tabs" aria-label="Seções do Bicho"><button data-tab="apostar" aria-pressed="true">Apostar</button><button data-tab="res" aria-pressed="false">Resultados</button><button data-tab="minhas" aria-pressed="false">Bilhetes</button><button data-tab="guia" aria-pressed="false">Guia</button></nav>
+<div id="bi-sc">
+<section id="bi-s-apostar">
+<div id="bi-pal"></div>
+<h2 class="bi-h2">Tipo de aposta</h2>
+<div id="bi-tipo" class="bi-seg"></div>
+<p class="bi-tip" id="bi-tiptxt"></p>
+<h2 class="bi-h2" id="bi-hesc"></h2>
+<div id="bi-boxan"><div id="bi-grid"></div></div>
+<div id="bi-boxnum" hidden><div id="bi-slots"></div><p id="bi-pick"></p><div id="bi-pad"></div></div>
+<h2 class="bi-h2">Pagar com</h2>
+<div id="bi-cur" class="bi-chips"></div>
+<h2 class="bi-h2">Valor da ficha</h2>
+<div id="bi-chips" class="bi-chips"></div>
+<h2 class="bi-h2">Valendo</h2>
+<div id="bi-prem" class="bi-opt"></div>
+<p class="bi-tip" id="bi-odds"></p>
+<p class="bi-tip">Jogo de faz de conta, com as moedas e sacas do jogo. Na vida real, o jogo do bicho é contravenção penal no Brasil.</p>
+</section>
+<section id="bi-s-res" hidden></section>
+<section id="bi-s-minhas" hidden></section>
+<section id="bi-s-guia" hidden></section>
+</div>
+<div id="bi-foot"><button id="bi-go"></button></div>
+<div id="bi-sheet" role="dialog" aria-modal="true" aria-label="Resultado da extração"><h3 id="bi-shh"></h3><p id="bi-shsub"></p><div id="bi-draw"></div><div id="bi-out"></div><button id="bi-close" disabled>Fechar</button></div>
+<div id="bi-toast" role="status"></div>
+</div>
 <div id="prec" aria-label="Aplicativos recentes"><div id="prl"></div><button id="prclear">Limpar tudo</button></div>
 <nav id="nav" aria-label="Navegação"><button id="nback" aria-label="Voltar"><svg viewBox="0 0 24 24"><path d="M16 5L7 12l9 7z"/></svg></button><button id="nhome" aria-label="Minimizar"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/></svg></button><button id="nrec" aria-label="Recentes"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/></svg></button></nav>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -620,7 +752,7 @@ function finish(w,l){
   if(bet.tv&&!bet.stake){}else if(bet.insc)msg+=window.inscDone(bet.insc,won);else if(won){const net=Math.round(bet.stake*(odds[w.i]-1)),fee=Math.ceil(net*.05);INV[bet.item]+=net-fee;
     msg+="Você ganhou "+(net-fee)+" sacas de "+bet.item.toLowerCase()+" (taxa da casa: "+fee+").";}
   else{INV[bet.item]-=bet.stake;msg+="Você perdeu "+bet.stake+" sacas de "+bet.item.toLowerCase()+".";}
-  saveShop();if(bet.tv)msg+=' '+window.tvDone(w.i);$('rtxt').textContent=msg;$('again').textContent=bet.tv?'Voltar à programação':bet.insc?'Ver minhas inscrições':'Nova luta';$('again').hidden=false;say(w.name+" venceu!",true);
+  saveShop();if(bet.tv)msg+=' '+window.tvDone(w.i);try{const bx=window.bichoFight&&window.bichoFight(w,l,CARD&&CARD.replay);if(bx)msg+=' '+bx}catch(e){}$('rtxt').textContent=msg;$('again').textContent=bet.tv?'Voltar à programação':bet.insc?'Ver minhas inscrições':'Nova luta';$('again').hidden=false;say(w.name+" venceu!",true);
 }
 function step(dt){
   if(st!=="fight"||!turn)return;
@@ -870,7 +1002,7 @@ function thumb(cv,pals,pz){
 }
 const TITLES=['AO VIVO: {a} x {b}','{a} vs {b}: quem leva o saco?','{a} contra {b} | rinha ao vivo','{a} e {b} | apostas abertas agora','{a} x {b} | final do terreiro ao vivo','{a} x {b}: a luta mais falada da roça'],CH=['Terreiro TV','Arena da Roça','Rinha Oficial','Canal do Galpão'],TAGS=['nocautes','revanches','em alta','nocautes','revanches','em alta','nocautes'];
 let CARD=null,inHome=true;
-function goHome(){inHome=true;document.body.classList.remove('c','s','g','i');document.body.classList.add('h')}
+function goHome(){inHome=true;document.body.classList.remove('c','s','g','i','b');document.body.classList.add('h')}
 function buildHome(){
   const feed=$('feed');feed.innerHTML='';
   for(let i=0;i<8;i++){
@@ -885,21 +1017,21 @@ function buildHome(){
 $('back').onclick=goHome;$('wsub').onclick=e=>{const b=e.currentTarget,on=b.classList.toggle('on');b.textContent=on?'Inscrito':'Inscrever-se'};
 $('chips').onclick=e=>{const c=e.target.closest('button');if(!c)return;[...$('chips').children].forEach(x=>x.setAttribute('aria-pressed',x===c));[...$('feed').children].forEach(a=>a.hidden=c.dataset.t!=='tudo'&&!a.dataset.tag.includes(c.dataset.t))};
 $('q').oninput=e=>{const v=e.target.value.toLowerCase();[...$('feed').children].forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(v))};
-function goPhone(){$('pq').value='';$('pq').oninput({target:$('pq')});document.body.classList.remove('c','s','g','i');document.body.classList.add('p')}
+function goPhone(){$('pq').value='';$('pq').oninput({target:$('pq')});document.body.classList.remove('c','s','g','i','b');document.body.classList.add('p')}
 let tt;function toast(t){const e=$('ptoast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),1400)}
 document.querySelectorAll('.app[data-soon]').forEach(a=>a.onclick=()=>{const i=a.firstChild;i.classList.remove('wg');void i.offsetWidth;i.classList.add('wg');toast('Em breve')});
 $('pq').oninput=e=>{const v=e.target.value.trim().toLowerCase();document.querySelectorAll('#pgrid .app').forEach(a=>a.hidden=!a.textContent.toLowerCase().includes(v))};
 /* navegação do celular */
 const B=document.body.classList;let recent=[];
-function openTV(){B.remove('p','r','c','s','g','i');if(!recent.includes('tv'))recent.push('tv')}
+function openTV(){B.remove('p','r','c','s','g','i','b');if(!recent.includes('tv'))recent.push('tv')}
 function closeRec(){B.remove('r')}
-const APPS={web:['webapp','Internet',()=>window.openWeb()],tv:['tvapp','TV',()=>openTV()],coop:['coopapp','Galinheiro',()=>window.openCoop()],shop:['shopapp','Agropecuária',()=>window.openShop()],gym:['gymapp','Treino',()=>window.openGym()]};
+const APPS={web:['webapp','Internet',()=>window.openWeb()],tv:['tvapp','TV',()=>openTV()],coop:['coopapp','Galinheiro',()=>window.openCoop()],shop:['shopapp','Agropecuária',()=>window.openShop()],gym:['gymapp','Treino',()=>window.openGym()],bicho:['bichoapp','Bicho',()=>window.openBicho()]};
 function drawRec(){const l=$('prl');l.innerHTML='';
   recent.forEach(k=>{const[id,n,fn]=APPS[k],c=document.createElement('button');c.className='rc';c.appendChild($(id).firstChild.cloneNode(true));c.append(n);c.onclick=fn;l.appendChild(c)});
   if(!recent.length){const e=document.createElement('p');e.id='prempty';e.textContent='Nenhum app recente';l.appendChild(e)}
   $('prclear').hidden=!recent.length}
 $('tvapp').onclick=openTV;
-$('nback').onclick=()=>{if(B.contains('r'))closeRec();else if(B.contains('p'))return;else if(B.contains('i')){if(!window.webBack())goPhone()}else if(B.contains('c')||B.contains('s')||B.contains('g'))goPhone();else if(B.contains('h'))goPhone();else goHome()};
+$('nback').onclick=()=>{if(B.contains('r'))closeRec();else if(B.contains('p'))return;else if(B.contains('i')){if(!window.webBack())goPhone()}else if(B.contains('b')){if(!window.bichoBack())goPhone()}else if(B.contains('c')||B.contains('s')||B.contains('g'))goPhone();else if(B.contains('h'))goPhone();else goHome()};
 $('nhome').onclick=()=>{closeRec();goPhone()};
 $('nrec').onclick=()=>{if(B.contains('r')){closeRec();return}drawRec();B.add('r')};
 $('prclear').onclick=()=>{recent=[];drawRec()};
@@ -952,7 +1084,7 @@ $('shl').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return
   else{if(INV[k]<5)return;INV[k]-=5;SH.coins+=5*PRICE[k];shm('Vendeu 5 sacas de '+k.toLowerCase()+'.')}
   saveShop();shopRender()};
 $('shtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;stab=b.dataset.t;shopRender()};
-window.openShop=()=>{B.remove('p','r','c','g','i');B.add('s');shopRender();if(!recent.includes('shop'))recent.push('shop')};
+window.openShop=()=>{B.remove('p','r','c','g','i','b');B.add('s');shopRender();if(!recent.includes('shop'))recent.push('shop')};
 $('shopapp').onclick=window.openShop;
 /* peso e alimentação: galos engordam com ração e emagrecem com o tempo e as lutas; categorias Pena, Médio e Pesado */
 const BW={Trovão:2.3,Capitão:2.5,Faísca:2.1,Valentão:2.7,'Pé de Serra':2.6,Cangaceiro:2.4,Relâmpago:2,Sultão:3.1,Mourão:2.9,Tufão:2.2,Frequesprechas:1.7,'Pancho Palito':1.4};
@@ -1115,7 +1247,7 @@ function frame(dt){
   ring.visible=!!R.length;nm.style.whiteSpace=R.length?'nowrap':'normal';nm.style.maxWidth=R.length?'none':'80%';
   if(!R.length){nm.textContent='Você ainda não tem galos. Compre um na Agropecuária!';nm.style.transform='translate(16px,'+h*.12+'px)'}
 }
-window.openCoop=()=>{B.remove('p','r','s','g','i');B.add('c');if(!recent.includes('coop'))recent.push('coop')};
+window.openCoop=()=>{B.remove('p','r','s','g','i','b');B.add('c');if(!recent.includes('coop'))recent.push('coop')};
 $('coopapp').onclick=window.openCoop;
 window.coopAdd=i=>{if(R.some(r=>r.i===i))return;const r=mk(i);R.push(r);next(r);dotsUp();pick(sel)};
 R.forEach(r=>next(r));pick(0);
@@ -1204,7 +1336,7 @@ function next(){
   if(!Q.length||en()<25){busy=false;cur=null;sv();say(Q.length?nm()+' está exausto. Deixe descansar!':'Treino concluído! '+nm()+' ficou mais forte.');Q=[];skills();stat();return}
   const k=Q.shift(),r=tr();r.en=en()-25;r.ts=Date.now();cur={k,t:0,n:-1,h:{}};
   say('Treinando '+SK.find(s=>s[0]===k)[1]+'...');stat()}
-window.openGym=()=>{B.remove('p','r','c','s','i');B.add('g');owned=SH.owned.slice();if(sel>=owned.length)sel=0;
+window.openGym=()=>{B.remove('p','r','c','s','i','b');B.add('g');owned=SH.owned.slice();if(sel>=owned.length)sel=0;
   owned.length?mkBird():noBird();skills();stat();say(owned.length?'Escolha as habilidades e toque em Treinar.':'Você ainda não tem galo. Compre um na Agropecuária!');if(!recent.includes('gym'))recent.push('gym')};
 $('gymapp').onclick=window.openGym;setInterval(()=>{if(B.contains('g')&&owned.length)stat()},1000);
 /* animação */
@@ -1399,7 +1531,7 @@ pg.onclick=e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;con
 pg.oninput=e=>{if(e.target.id==='wow')OWNER=e.target.value};
 pg.onchange=e=>{if(e.target.id==='wtm')W.terms=e.target.checked};
 $('wrel').onclick=()=>{wr();wtoast('Página atualizada')};
-window.openWeb=v=>{B.remove('p','r','c','s','g');B.add('i');if(typeof v==='string'){W.hist=[];W.v=v;W.cf=null}wr();refresh();if(!recent.includes('web'))recent.push('web')};
+window.openWeb=v=>{B.remove('p','r','c','s','g','b');B.add('i');if(typeof v==='string'){W.hist=[];W.v=v;W.cf=null}wr();refresh();if(!recent.includes('web'))recent.push('web')};
 $('webapp').onclick=()=>window.openWeb();
 })();
 buildHome();requestAnimationFrame(tick);
@@ -1449,7 +1581,7 @@ window.TVNET={
 };
 
 /* ---------- conexão ---------- */
-const watching=()=>!['p','i','c','s','g'].some(c=>B.contains(c));
+const watching=()=>!['p','i','c','s','g','b'].some(c=>B.contains(c));
 function connect(){
   if(!LIVE_SERVER||T.ws)return;
   let ws;try{ws=new WebSocket(http().replace(/^http/,'ws')+'/ws?token='+TOKEN)}catch(e){return}
@@ -1530,13 +1662,13 @@ function openChannel(){
   else if(s&&s.phase==='fight'&&T.last&&s.fight&&T.last.id===s.fight.id)tvFight({...T.last,late:true});
   else waitScreen(LIVE_SERVER?'Aguardando a próxima luta…':'Sem sinal: o servidor da TV não foi configurado.');
 }
-window.tvOpen=()=>{B.remove('p','r','c','s','g','i');openChannel()};
+window.tvOpen=()=>{B.remove('p','r','c','s','g','i','b');openChannel()};
 window.tvReplay=async id=>{
   try{
     const m=await(await fetch(http()+'/api/replay?id='+id)).json();if(!m.sc)throw 0;
     T.ch=true;T.replay=true;T.fid=-1;T.you=-1;T.mybet=null;
-    B.remove('p','r','c','s','g','i','h');inHome=false;if(!recent.includes('tv'))recent.push('tv');
-    CARD=cardOf({title:'Replay',seats:m.g,odds:m.odds});st='done';newFight();
+    B.remove('p','r','c','s','g','i','h','b');inHome=false;if(!recent.includes('tv'))recent.push('tv');
+    CARD=cardOf({title:'Replay',seats:m.g,odds:m.odds});CARD.replay=1;st='done';newFight();
     $('wv').textContent='Replay';play(m,'Replay: ');
   }catch(e){toast('Replay indisponível')}
 };
@@ -1582,6 +1714,256 @@ function drawHome(){
 setInterval(()=>{if(watching()&&B.contains('h'))drawHome()},1000);
 drawHome();obs();
 setTimeout(()=>window.webSync&&window.webSync(),2000);
+})();
+</script>
+<script>
+/* app Bicho: cada luta que termina puxa uma extração; apostas pagas com moedas ou sacas, o mesmo bolso da Agropecuária e das lutas */
+(()=>{
+"use strict";
+const A=[["Avestruz","🦤"],["Águia","🦅"],["Burro","🫏"],["Borboleta","🦋"],["Cachorro","🐕"],["Cabra","🐐"],["Carneiro","🐏"],["Camelo","🐫"],["Cobra","🐍"],["Coelho","🐇"],["Cavalo","🐎"],["Elefante","🐘"],["Galo","🐓"],["Gato","🐈"],["Jacaré","🐊"],["Leão","🦁"],["Macaco","🐒"],["Porco","🐖"],["Pavão","🦚"],["Peru","🦃"],["Touro","🐂"],["Tigre","🐅"],["Urso","🐻"],["Veado","🦌"],["Vaca","🐄"]];
+const TIPOS={
+ grupo:{n:"Grupo",d:0,p:18,t:"Escolha um animal. Ganha se o sorteio cair em qualquer uma das 4 dezenas dele."},
+ dezena:{n:"Dezena",d:2,p:60,t:"Acerte os 2 últimos dígitos."},
+ centena:{n:"Centena",d:3,p:600,t:"Acerte os 3 últimos dígitos."},
+ milhar:{n:"Milhar",d:4,p:4000,t:"Acerte os 4 dígitos. Paga mais e é mais difícil."}
+};
+/* o bicho de cada galo (posição na lista A) */
+const PAT={"Trovão":20,"Capitão":15,"Faísca":16,"Valentão":22,"Pé de Serra":5,"Cangaceiro":8,"Relâmpago":10,"Sultão":7,"Mourão":14,"Tufão":1,"Frequesprechas":2,"Pancho Palito":0};
+const BANCA={c:3000,s:600},BANCA_MS=300000,CHIPS={c:[2,5,10,25],s:[5,10,20,40]};
+const pad=(n,l)=>String(n).padStart(l,"0");
+const gi=d=>d===0?24:Math.ceil(d/4)-1;
+const dz=i=>[1,2,3,4].map(k=>pad((i*4+k)%100,2)).join("-");
+const nf=v=>Number(v).toLocaleString("pt-BR");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ck=c=>c==="c"?"c":"s";
+const CURS=()=>[["c","🪙","Moedas"]].concat(KEYS.map(k=>[k,EM[k],k]));
+const bal=c=>c==="c"?SH.coins:(INV[c]||0);
+const addB=(c,v)=>{if(c==="c")SH.coins+=v;else INV[c]=(INV[c]||0)+v};
+const mon=(c,v)=>c==="c"?"🪙 "+nf(v):nf(v)+" "+(v===1?"saca":"sacas")+" de "+c.toLowerCase();
+const monS=(c,v)=>c==="c"?"🪙 "+nf(v):nf(v)+" "+EM[c];
+const mons=o=>Object.keys(o).map(c=>mon(c,o[c])).join(" e ");
+const sgn=n=>(n>=0?"+":"−")+nf(Math.abs(n));
+function pat(n){const s=String(n||"");if(PAT[s]!=null)return PAT[s];const m=/\(([^)]+)\)\s*$/.exec(s);if(m&&PAT[m[1]]!=null)return PAT[m[1]];let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))>>>0;return h%25}
+function rng(s){let h=1779033703^s.length;for(let i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}
+ let a=h>>>0;return()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const result=seed=>{const r=rng(seed);return Array.from({length:5},()=>Math.floor(r()*10000))};
+const isHit=(b,m)=>b.d?pad(m,4).slice(-b.d)===b.num:gi(m%100)===b.animal;
+const mult=(tipo,np)=>TIPOS[tipo].p/(np===5?5:1);
+const prize=(v,cur,m)=>Math.min(BANCA[ck(cur)],Math.round(v*m));
+const open=()=>document.body.classList.contains("b");
+const fighting=()=>{try{return st==="rise"||st==="approach"||st==="fight"}catch(e){return false}};
+const reduced=()=>{try{return matchMedia("(prefers-reduced-motion:reduce)").matches}catch(e){return false}};
+
+/* estado: o saldo de verdade mora em SH.coins e INV (compartilhado com o resto do jogo); aqui ficam bilhetes e resultados */
+let BI={n:0,t:Date.now(),seq:0,pend:[],hist:[],res:[],badge:0,last:null,R:0,V:0,net:{c:0,s:0}};
+try{const r=JSON.parse(localStorage.getItem("gbicho1")||"null");if(r&&typeof r==="object")BI=Object.assign(BI,r)}catch(e){}
+BI.net=Object.assign({c:0,s:0},BI.net);
+const save=()=>{try{localStorage.setItem("gbicho1",JSON.stringify(BI))}catch(e){}};
+const UI={tipo:"grupo",animal:null,num:"",cur:"c",v:{c:5,s:10},np:1,tab:"apostar"};
+const T0=()=>TIPOS[UI.tipo];
+const ready=()=>{const d=T0().d;return d?UI.num.length===d:UI.animal!==null};
+
+let tt;function note(m){const t=$("bi-toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2400)}
+function setBadge(){const b=$("bichoapp");if(BI.badge>0)b.dataset.n=BI.badge>9?"9+":String(BI.badge);else delete b.dataset.n}
+
+function build(){
+ $("bi-tipo").innerHTML=Object.keys(TIPOS).map(k=>`<button data-tp="${k}" aria-pressed="false">${TIPOS[k].n}</button>`).join("");
+ $("bi-grid").innerHTML=A.map((a,i)=>`<button class="bi-an" data-i="${i}" aria-pressed="false" aria-label="${pad(i+1,2)} ${a[0]}"><span class="e">${a[1]}</span><b>${pad(i+1,2)} ${a[0]}</b><small>${dz(i)}</small></button>`).join("");
+ $("bi-pad").innerHTML=[1,2,3,4,5,6,7,8,9,"⌫",0,"C"].map(k=>`<button data-k="${k}" aria-label="${k==="⌫"?"Apagar":k==="C"?"Limpar":k}">${k}</button>`).join("");
+ $("bi-prem").innerHTML=`<button data-np="1" aria-pressed="true">Só o 1º prêmio<small>Paga mais</small></button><button data-np="5" aria-pressed="false">Do 1º ao 5º<small>Mais chances, paga menos</small></button>`;
+ const gl=Object.keys(PAT).map(n=>{const a=A[PAT[n]];return `<span>${a[1]} ${esc(n)}: ${a[0]}</span>`}).join("");
+ $("bi-s-guia").innerHTML=
+  `<h2 class="bi-h2">Como funciona</h2>`+
+  `<div class="bi-card">A extração sai quando uma luta termina, seja na TV, na Arena ou no ringue. Se ninguém lutar por 5 minutos, a banca puxa uma extração sozinha.</div>`+
+  `<div class="bi-card">Cada extração tem 5 milhares. O animal vem dos dois últimos dígitos: 4327 → dezena 27 → 🐏 Carneiro. São 25 animais, cada um com 4 dezenas (00 a 99).</div>`+
+  `<div class="bi-card">Seu bilhete vale para a próxima extração. Você paga com moedas ou com sacas, e o prêmio volta para o mesmo saldo da Agropecuária e do estoque das lutas.</div>`+
+  `<h2 class="bi-h2">Pagamentos</h2>`+
+  Object.keys(TIPOS).map(k=>`<div class="bi-pay"><span>${TIPOS[k].n}</span><b>${nf(TIPOS[k].p)}x</b></div>`).join("")+
+  `<p class="bi-tip">Valendo do 1º ao 5º, o pagamento cai para um quinto por acerto, mas você tem cinco chances. A banca paga no máximo ${mon("c",BANCA.c)} ou ${mon("Feijão",BANCA.s)} (ou outra saca) por bilhete.</p>`+
+  `<h2 class="bi-h2">A sorte vem da rinha</h2>`+
+  `<div class="bi-card">Os 5 milhares nascem da luta: vida que sobrou, força e velocidade do vencedor e do perdedor entram na conta. Outra luta, outro resultado.</div>`+
+  `<div class="bi-card"><b>Bênção do galo:</b> se o galo vencedor é seu (está no Galinheiro), todos os prêmios dessa extração pagam 10% a mais.</div>`+
+  `<div class="bi-card"><b>Bicho do vencedor:</b> se o 1º prêmio cair no bicho do galo que venceu, os prêmios pagam 50% a mais.</div>`+
+  `<h2 class="bi-h2">O bicho de cada galo</h2><div class="bi-card"><div class="bi-gl">${gl}</div></div>`;
+}
+
+function renderPal(){
+ const el=$("bi-pal"),lf=BI.res.find(e=>e.w);
+ if(!lf){el.className="";el.innerHTML="";return}
+ const i=pat(lf.w);
+ el.className="on";
+ el.innerHTML=`<span>Palpite do terreiro: <b>${esc(lf.w)}</b> venceu ${esc(lf.l)} na última luta. Bicho do galo: ${A[i][1]} ${A[i][0]} (${dz(i)})</span><button data-pal="${i}">Apostar</button>`;
+}
+function render(){
+ const T=T0(),g=!T.d,k=ck(UI.cur),b=bal(UI.cur),m=mult(UI.tipo,UI.np);
+ if(UI.v[k]>b){const ok=CHIPS[k].filter(x=>x<=b);if(ok.length)UI.v[k]=ok[ok.length-1]}
+ const v=UI.v[k];
+ $("bi-sal").textContent="🪙 "+nf(SH.coins);
+ $("bi-tiptxt").textContent=T.t;
+ $("bi-hesc").textContent=g?"Escolha o animal":"Digite o número";
+ $("bi-boxan").hidden=!g;$("bi-boxnum").hidden=g;
+ document.querySelectorAll("#bi-tipo button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.tp===UI.tipo));
+ document.querySelectorAll(".bi-an").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.i===UI.animal));
+ document.querySelectorAll("#bi-prem button").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.np===UI.np));
+ if(!g){
+  $("bi-slots").innerHTML=Array.from({length:T.d},(_,i)=>`<div class="bi-slot${i===UI.num.length?" cur":""}">${UI.num[i]||""}</div>`).join("");
+  const n=UI.num;$("bi-pick").textContent=n.length>=2?(()=>{const a=A[gi(+n.slice(-2))];return "Termina em "+n.slice(-2)+": "+a[1]+" "+a[0]})():"";
+ }
+ $("bi-cur").innerHTML=CURS().map(([c,e,n])=>`<button data-cur="${c}" aria-pressed="${c===UI.cur}"><span>${e} ${n}</span><small>${nf(bal(c))}</small></button>`).join("");
+ $("bi-chips").innerHTML=CHIPS[k].map(x=>`<button data-v="${x}" aria-pressed="${x===v}" ${x>b?"disabled":""}>${monS(UI.cur,x)}</button>`).join("");
+ $("bi-odds").textContent="Chance de ganhar: 1 em "+nf(Math.round((T.d?Math.pow(10,T.d):25)/UI.np))+". Paga "+nf(m)+"x a ficha, até "+mon(UI.cur,BANCA[k])+" por bilhete.";
+ const go=$("bi-go"),tk=ready();
+ go.disabled=!tk||v>b;
+ go.innerHTML=!tk?(g?"Escolha um animal":"Digite o número"):v>b?"Saldo insuficiente":`Jogar ${monS(UI.cur,v)}<small>ganha até ${mon(UI.cur,prize(v,UI.cur,m))}${v*m>BANCA[k]?" (limite da banca)":""} · sai ao fim da próxima luta</small>`;
+ renderPal();
+}
+function renderNx(){
+ const left=Math.max(0,BANCA_MS-(Date.now()-BI.t)),n=BI.pend.length;
+ $("bi-nxt").innerHTML=fighting()?"Luta em andamento: a extração sai quando ela acabar.":"Próxima extração: ao fim da próxima luta, ou em <b>"+pad(Math.floor(left/60000),2)+":"+pad(Math.floor(left%60000/1000),2)+"</b>"+(n?" · "+n+(n===1?" bilhete":" bilhetes"):"");
+}
+function renderRes(){
+ const L=BI.res,el=$("bi-s-res");
+ if(!L.length){el.innerHTML=`<div class="bi-empty">Nenhuma extração ainda.<br>A primeira sai quando a próxima luta terminar.</div>`;return}
+ let hot="";
+ if(L.length>=3){
+  const c=Array(25).fill(0),last=Array(25).fill(-1);
+  L.forEach((e,ei)=>e.nums.forEach(m=>{const i=gi(m%100);c[i]++;if(last[i]<0)last[i]=ei}));
+  const idx=[...c.keys()],q=i=>A[i][1]+" "+A[i][0];
+  const top=idx.filter(i=>c[i]>0).sort((a,b)=>c[b]-c[a]||last[a]-last[b]).slice(0,3).map(i=>`${q(i)} (${c[i]}x)`).join(", ");
+  const old=idx.sort((a,b)=>(last[b]<0?1e3:last[b])-(last[a]<0?1e3:last[a])||a-b).slice(0,3).map(i=>`${q(i)}${last[i]<0?" (não saiu)":" (há "+last[i]+(last[i]===1?" extração)":" extrações)")}`).join(", ");
+  hot=`<div class="bi-hot">Nas últimas ${L.length} extrações:<br><b>Mais saíram:</b> ${top}<br><b>Mais atrasados:</b> ${old}</div>`;
+ }
+ el.innerHTML=hot+L.slice(0,15).map(e=>{
+  const tm=new Date(e.t).toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+  const sub=e.w?`Luta: ${esc(e.w)} venceu ${esc(e.l)}${e.hp?", com "+e.hp+" de vida":""}`:"Extração da banca, sem luta";
+  return `<div class="bi-ex"><header><h3>Extração nº ${e.n}</h3><time>${tm}</time></header><p>${sub}</p>${e.bless?'<span class="bi-tag">Bênção do galo +10%</span>':""}${e.pw?'<span class="bi-tag">Bicho do vencedor +50%</span>':""}<div class="bi-pz">${e.nums.map((m,j)=>{const a=A[gi(m%100)];return `<div><small>${j+1}º</small><span class="e">${a[1]}</span><span class="nm">${pad(m,4)}</span><small>${a[0]}</small></div>`}).join("")}</div></div>`}).join("");
+}
+function renderMin(){
+ const pe=BI.pend.map(b=>`<div class="bi-tk"><div><b>${esc(b.desc)}</b><small>Ficha ${monS(b.cur,b.valor)} · ganha até ${mon(b.cur,prize(b.valor,b.cur,b.m))}</small></div><div class="bi-tr"><span class="bi-wait">Aguardando</span><button data-cancel="${b.id}">Cancelar</button></div></div>`).join("");
+ const hi=BI.hist.map(h=>{const a=A[gi(+h.p.slice(-2))];return `<div class="bi-tk"><div><b>${esc(h.a)}</b><small>Extração nº ${h.n} · 1º prêmio ${h.p} (${a[1]} ${a[0]})</small></div><span class="${h.w?"bi-w":"bi-l"}">${h.w?"+":"−"}${monS(h.cur,h.v)}</span></div>`}).join("");
+ $("bi-s-minhas").innerHTML=`<div class="bi-stats"><div><b>${BI.R}</b><span>bilhetes</span></div><div><b>${BI.V}</b><span>acertos</span></div><div><b>${sgn(BI.net.c)}</b><span>moedas</span></div><div><b>${sgn(BI.net.s)}</b><span>sacas</span></div></div><h2 class="bi-h2">Bilhetes</h2>`+(pe+hi||`<div class="bi-empty">Nenhuma aposta ainda.<br>Escolha um bicho e jogue.</div>`);
+}
+const renderAll=()=>{render();if(UI.tab==="res")renderRes();if(UI.tab==="minhas")renderMin();renderNx()};
+function tab(t){
+ UI.tab=t;
+ ["apostar","res","minhas","guia"].forEach(x=>$("bi-s-"+x).hidden=x!==t);
+ document.querySelectorAll("#bi-tabs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.tab===t));
+ $("bi-foot").hidden=t!=="apostar";$("bi-sc").scrollTop=0;
+ if(t==="res")renderRes();if(t==="minhas")renderMin();
+}
+
+/* extração: o resultado nasce dos números da luta; sem luta, a banca puxa por conta própria */
+function extrai(w,l){
+ const n=++BI.n,now=Date.now(),r=x=>Math.round((x||0)*100);
+ const seed=w?["bicho",n,w.name,l.name,Math.round(w.hp||0),w.max,l.max,r(w.atk),r(l.atk),r(w.spd),r(l.spd)].join("|"):"bicho|banca|"+n+"|"+now;
+ const nums=result(seed);
+ let bless=false;try{bless=!!(w&&own(w.name))}catch(e){}
+ const pw=!!(w&&pat(w.name)===gi(nums[0]%100)),bx=1+(bless?.1:0)+(pw?.5:0);
+ const ex={n,nums,t:now,w:w?w.name:null,l:l?l.name:null,hp:w?Math.round(w.hp||0):0,bless,pw};
+ const due=BI.pend;BI.pend=[];
+ const sum={n,bets:due.length,won:{},lost:{},hits:[0,0,0,0,0]};
+ due.forEach(b=>{
+  const hits=nums.map((m,i)=>i<b.np&&isHit(b,m)),k=hits.filter(Boolean).length;
+  let pay=0;
+  BI.R++;
+  if(k){pay=Math.min(BANCA[ck(b.cur)],Math.round(k*b.valor*b.m*bx));addB(b.cur,pay);BI.V++;sum.won[b.cur]=(sum.won[b.cur]||0)+pay;hits.forEach((h,i)=>{if(h)sum.hits[i]=1})}
+  else sum.lost[b.cur]=(sum.lost[b.cur]||0)+b.valor;
+  BI.net[ck(b.cur)]+=pay-b.valor;
+  BI.hist.unshift({a:b.desc,cur:b.cur,n,p:pad(nums[0],4),w:k>0,v:k>0?pay:b.valor});
+ });
+ BI.hist=BI.hist.slice(0,40);
+ BI.res.unshift(ex);BI.res=BI.res.slice(0,30);BI.t=now;
+ if(due.length&&!open()){BI.badge++;BI.last={ex,sum};setBadge()}
+ save();if(due.length)try{saveShop()}catch(e){}
+ if(due.length&&!open())try{toast("Bicho: extração nº "+n+" saiu")}catch(e){}
+ if(open()){
+  if(due.length){BI.badge=0;BI.last=null;save();setBadge();showSheet(ex,sum,0)}
+  else note("Extração nº "+n+" saiu.");
+  renderAll();
+ }
+ return{ex,sum};
+}
+
+/* folha do resultado: os 5 prêmios aparecem um a um */
+let rt=[];
+function showSheet(ex,sum,more){
+ rt.forEach(clearTimeout);rt=[];
+ $("bi-shh").textContent="Extração nº "+ex.n;
+ $("bi-shsub").textContent=(ex.w?"Luta: "+ex.w+" venceu "+ex.l:"Extração da banca, sem luta")+(more>0?" · e mais "+more+(more===1?" extração":" extrações")+" nas suas apostas":"");
+ $("bi-draw").innerHTML=ex.nums.map((m,i)=>{const a=A[gi(m%100)];return `<div class="bi-pr${sum.hits[i]?" hit":""}"><span class="e">${a[1]}</span><div><div class="nm">${pad(m,4)}</div><small>${a[0]}</small></div><span class="n">${i+1}º prêmio</span></div>`}).join("");
+ $("bi-out").innerHTML="";$("bi-close").disabled=true;$("bi-sheet").classList.add("on");
+ const won=Object.keys(sum.won).length>0,lost=Object.keys(sum.lost).length>0;
+ const fin=()=>{
+  let h;
+  if(won){h=`<div class="big win">🎉 Você ganhou ${mons(sum.won)}!</div>`;
+   const bn=[ex.bless?"Bênção do galo +10%":"",ex.pw?"Bicho do vencedor +50%":""].filter(Boolean).join(" · ");
+   if(bn)h+=`<p>${bn}</p>`;
+   if(lost)h+=`<p>Nos outros bilhetes você perdeu ${mons(sum.lost)}.</p>`}
+  else h=`<div class="big lose">Não foi desta vez</div><p>Você perdeu ${mons(sum.lost)}.</p>`;
+  $("bi-out").innerHTML=h;$("bi-close").disabled=false;
+  if(won&&navigator.vibrate)navigator.vibrate([60,40,60]);
+ };
+ const rows=[...document.querySelectorAll("#bi-draw .bi-pr")];
+ if(reduced()){rows.forEach(r=>r.classList.add("show"));fin()}
+ else{rows.forEach((r,i)=>rt.push(setTimeout(()=>r.classList.add("show"),350+i*420)));rt.push(setTimeout(fin,350+5*420))}
+}
+function closeSheet(){rt.forEach(clearTimeout);rt=[];$("bi-sheet").classList.remove("on");renderAll()}
+
+function play(){
+ const T=T0(),k=ck(UI.cur),v=UI.v[k];
+ if(!ready()||v>bal(UI.cur))return;
+ const m=mult(UI.tipo,UI.np);
+ BI.pend.push({id:++BI.seq,d:T.d,num:UI.num,animal:UI.animal,valor:v,cur:UI.cur,np:UI.np,m,desc:T.n+" "+(T.d?UI.num:A[UI.animal][1]+" "+A[UI.animal][0])+(UI.np===5?" (1º ao 5º)":"")});
+ addB(UI.cur,-v);saveShop();save();
+ UI.num="";UI.animal=null;
+ note("Aposta feita! Sai ao fim da próxima luta.");renderAll();
+}
+function cancel(id){
+ const i=BI.pend.findIndex(b=>b.id===id);if(i<0)return;
+ const b=BI.pend.splice(i,1)[0];addB(b.cur,b.valor);saveShop();save();
+ note("Bilhete cancelado. Devolvemos "+mon(b.cur,b.valor)+".");renderAll();
+}
+
+$("bicho").addEventListener("click",e=>{
+ const b=e.target.closest("button");if(!b||b.disabled)return;const D=b.dataset;
+ if(D.tab){tab(D.tab);return}
+ if(D.cancel!==undefined){cancel(+D.cancel);return}
+ if(D.tp){UI.tipo=D.tp;UI.num="";UI.animal=null}
+ else if(D.k!==undefined){const m=T0().d;if(D.k==="⌫")UI.num=UI.num.slice(0,-1);else if(D.k==="C")UI.num="";else if(UI.num.length<m)UI.num+=D.k;if(navigator.vibrate)navigator.vibrate(8)}
+ else if(D.i!==undefined)UI.animal=+D.i;
+ else if(D.cur)UI.cur=D.cur;
+ else if(D.v)UI.v[ck(UI.cur)]=+D.v;
+ else if(D.np)UI.np=+D.np;
+ else if(D.pal!==undefined){UI.tipo="grupo";UI.animal=+D.pal;UI.num=""}
+ else return;
+ render();
+});
+$("bi-go").onclick=play;
+$("bi-close").onclick=closeSheet;
+$("bi-tv").onclick=()=>{try{openTV()}catch(e){}};
+
+window.bichoBack=()=>{
+ if($("bi-sheet").classList.contains("on")){if(!$("bi-close").disabled)closeSheet();return true}
+ if(UI.tab!=="apostar"){tab("apostar");return true}
+ return false;
+};
+window.openBicho=()=>{
+ B.remove("p","r","c","s","g","i");B.add("b");
+ tab("apostar");render();renderNx();
+ if(!recent.includes("bicho"))recent.push("bicho");
+ if(BI.badge>0&&BI.last){const L=BI.last,more=BI.badge-1;BI.badge=0;BI.last=null;save();setBadge();showSheet(L.ex,L.sum,more)}
+};
+/* chamado pelo fim de cada luta: devolve uma frase para o placar da luta */
+window.bichoFight=(w,l,replay)=>{
+ if(replay)return "";
+ const{ex,sum}=extrai(w,l),a=A[gi(ex.nums[0]%100)];
+ let s="🦁 Bicho nº "+ex.n+": 1º prêmio "+pad(ex.nums[0],4)+" ("+a[1]+" "+a[0]+").";
+ if(sum.bets)s+=Object.keys(sum.won).length?" Você ganhou "+mons(sum.won)+" no Bicho!":" Nenhum bilhete seu acertou.";
+ return s;
+};
+$("bichoapp").onclick=window.openBicho;
+setInterval(()=>{if(!fighting()&&Date.now()-BI.t>=BANCA_MS)extrai(null,null);if(open()&&!$("bi-sheet").classList.contains("on"))renderNx()},1000);
+build();tab("apostar");render();renderNx();setBadge();
 })();
 </script>
 <script>/* tela cheia: na 1ª e em toda toque seguinte, se saiu da tela cheia, pede de novo (o navegador só permite após um toque) */

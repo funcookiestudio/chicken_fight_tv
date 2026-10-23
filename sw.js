@@ -1,6 +1,6 @@
 /* Service worker do Chicken Fight: depois da primeira visita o jogo abre offline.
-   Ao publicar uma versão nova do jogo, aumente o número em VER (v3, v4...) para os celulares trocarem o cache. */
-const VER = 'chicken-tv-v4';
+   Ao publicar uma versão nova do jogo, aumente o número em VER (v5, v6...) para os celulares trocarem o cache. */
+const VER = 'chicken-tv-v5';
 const LOCAL = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
 const OPTIONAL = ['galo.jpg']; // papel de parede da tela inicial: só entra se o arquivo existir
 const SCRIPTS = ['https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'];

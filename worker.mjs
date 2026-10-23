@@ -1,4 +1,4 @@
-/* Chicken Fight · servidor da TV (Cloudflare Workers + Durable Objects)
+/* Tchenebrengue · servidor da TV (Cloudflare Workers + Durable Objects)
    Worker : rotas /api/tv, /api/insc, /api/cancel, /api/minhas, /api/replay e /ws
    Canal  : a emissora. Uma só instância: fila de inscrições, pareamento, janela de apostas,
             luta sorteada aqui (sim.mjs), resultado e histórico. Roda por alarme.
@@ -27,7 +27,7 @@ const nameOf = s => clean(s, 16) || 'Galo';
 const okToken = t => typeof t === 'string' && t.length >= 20 && t.length <= 80;
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].slice(0, 8).map(b => b.toString(16).padStart(2, '0')).join('');
 const hexColor = v => Number.isInteger(v) && v >= 0 && v <= 0xffffff ? v : 0x888888;
-const cleanPal = p => { p = p || {}; const o = {}; for (const k of ['body', 'dark', 'gold', 'wing', 't1', 't2', 't3', 'hud']) o[k] = hexColor(p[k]); if (p.thin) { o.thin = true; o.skin = hexColor(p.skin); } return o; };
+const cleanPal = p => { p = p || {}; const o = {}; for (const k of ['body', 'dark', 'gold', 'wing', 't1', 't2', 't3', 'hud']) o[k] = hexColor(p[k]); if (p.thin) { o.thin = p.thin === 2 ? 2 : true; o.skin = hexColor(p.skin); } if (p.mustache) o.mustache = true; return o; };
 const pub = s => ({ nick: s.nick, name: s.name, pal: s.pal, st: s.st, bot: !!s.bot });
 const house = (o, avoid) => {
   const pal = o.pal === avoid ? [0, 1, 2, 3, 4, 5].find(p => p !== avoid && p !== o.pal) : o.pal;
@@ -54,7 +54,7 @@ export default {
       const r = await canal().fetch(req);
       return new Response(r.body, { status: r.status, headers: { 'content-type': 'application/json', ...cors() } });
     }
-    return new Response('Chicken Fight TV', { headers: cors() });
+    return new Response('Tchenebrengue TV', { headers: cors() });
   }
 };
 

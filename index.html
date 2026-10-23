@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Chicken Fight</title>
+<title>Tchenebrengue</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#15211f">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Chicken Fight">
+<meta name="apple-mobile-web-app-title" content="Tchenebrengue">
 <link rel="icon" type="image/png" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
@@ -318,7 +318,7 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 <div id="ptoast" role="status"></div>
 </div>
 <div id="home">
-<header id="hb"><div class="lg"><svg class="lgi" viewBox="0 0 28 20" aria-hidden="true"><defs><linearGradient id="lgg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fb86a"/><stop offset="1" stop-color="#1f7a46"/></linearGradient></defs><rect width="28" height="20" rx="6" fill="url(#lgg)"/><use href="#rm" x="6" y="2" width="16" height="16"/></svg>Chicken Fight TV</div><div class="sr"><input id="q" placeholder="Pesquisar" aria-label="Pesquisar"><button aria-label="Pesquisar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f1f1f1" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button></div><i class="av">C</i></header>
+<header id="hb"><div class="lg"><svg class="lgi" viewBox="0 0 28 20" aria-hidden="true"><defs><linearGradient id="lgg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fb86a"/><stop offset="1" stop-color="#1f7a46"/></linearGradient></defs><rect width="28" height="20" rx="6" fill="url(#lgg)"/><use href="#rm" x="6" y="2" width="16" height="16"/></svg>Tchenebrengue TV</div><div class="sr"><input id="q" placeholder="Pesquisar" aria-label="Pesquisar"><button aria-label="Pesquisar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f1f1f1" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></button></div><i class="av">C</i></header>
 <nav id="chips"><button data-t="tudo" aria-pressed="true">Tudo</button><button data-t="ao vivo" aria-pressed="false">Ao vivo</button><button data-t="nocautes" aria-pressed="false">Nocautes</button><button data-t="revanches" aria-pressed="false">Revanches</button><button data-t="em alta" aria-pressed="false">Em alta</button></nav>
 <main id="feed"></main>
 </div>
@@ -327,7 +327,7 @@ body.i #stage,body.i #home,body.i #phone,body.i #coop,body.i #shop,body.i #gym{d
 <canvas id="c"></canvas>
 <div id="tv"><i id="grain"></i><i id="vig"></i></div>
 <div id="top">
-<div id="bar"><span style="display:flex;align-items:center;gap:8px"><button id="back" aria-label="Voltar ao início">‹</button><span class="live"><i class="rec"></i>AO VIVO</span></span><span>Chicken Fight TV</span><time id="clk"></time></div>
+<div id="bar"><span style="display:flex;align-items:center;gap:8px"><button id="back" aria-label="Voltar ao início">‹</button><span class="live"><i class="rec"></i>AO VIVO</span></span><span>Tchenebrengue TV</span><time id="clk"></time></div>
 <div id="hud">
   <div class="f" id="fa"><b></b><i class="bar"><u></u></i><small></small></div>
   <div class="f r" id="fb"><b></b><i class="bar"><u></u></i><small></small></div>
@@ -406,15 +406,15 @@ function fth(geo,col,skin,k,neck){
     A.needsUpdate=true;geo.attributes.color.needsUpdate=true};
   return m}
 function makeBird(P){
-  const TH=!!P.thin,SKN=P.skin||0xe3a08f;
+  const TH=!!P.thin,UT=P.thin===2,FQ=P.thin===true,SKN=P.skin||0xe3a08f;
   const b=new THREE.Group(),rig={};let cur=b;const a=(g,c,p,r,s)=>add(cur,g,c,p,r,s);
   const piv=(nm,x,y,z)=>{const pg=new THREE.Group();pg.position.set(x,y,z);b.add(pg);const inn=new THREE.Group();inn.position.set(-x,-y,-z);pg.add(inn);rig[nm]=pg;rig[nm+'_in']=inn;return inn};
   rig.fm=[];rig.tf=[];rig.wf=[];
   const af=(g,c,k,p,r,s,nk)=>{const m=fth(g,c,SKN,k,nk);m.position.set(...p);if(r)m.rotation.set(...r);if(s)m.scale.set(...s);cur.add(m);rig.fm.push(m);return m},BK=TH?[.9,.72,.7]:[.88,.62,.58];
-  if(TH){af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],[1.35,.7,.62]);af(ico(.8,1),P.dark,BK,[.95,1.75,0],[0,0,.18],[.8,.75,.55]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,[1,.7,.55]);[[1.35,2.05,0],[1.25,1.95,.22],[1.25,1.95,-.22],[1.1,2.15,.12],[1.1,2.15,-.12]].forEach(([x,y,z],i)=>a(cone(.1,.55,3),i%2?P.gold:P.body,[x,y,z],[0,0,Math.PI+.35+.12*i]))}
+  if(TH){af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],UT?[1.1,.5,.4]:[1.35,.7,.62]);af(ico(.8,1),P.dark,BK,[.95,1.75,0],[0,0,.18],UT?[.6,.55,.36]:[.8,.75,.55]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,UT?[.8,.5,.34]:[1,.7,.55]);[[1.35,2.05,0],[1.25,1.95,.22],[1.25,1.95,-.22],[1.1,2.15,.12],[1.1,2.15,-.12]].forEach(([x,y,z],i)=>a(cone(.1,.55,3),i%2?P.gold:P.body,[x,y,z],[0,0,Math.PI+.35+.12*i]))}
   else{af(ico(1,2),P.body,BK,[0,1.85,0],[0,0,.18],[1.45,.95,.9]);af(ico(.82,2),P.dark,BK,[1,1.78,0],[0,0,.18],[.98,1.05,1.02]);af(ico(.8,1),P.gold,BK,[.92,2.3,0],[0,0,.18],[1.05,.62,1.02]);af(ico(.62,1),P.body,BK,[-1.3,1.95,0],0,[1.1,.9,.8])}
   cur=piv('neck',.85,2.3,0);
-  if(TH){a(new THREE.CylinderGeometry(.12,.3,1.45,6),SKN,[1.05,2.9,0],[0,0,-.28]);[[.98,2.8,.2],[.98,2.8,-.2],[.92,2.55,.22],[.92,2.55,-.22]].forEach(([x,y,z],i)=>a(cone(.09,.5,3),i%2?P.body:P.gold,[x,y,z],[0,0,Math.PI-.5]));
+  if(TH){a(new THREE.CylinderGeometry(UT?.08:.12,UT?.2:.3,1.45,6),SKN,[1.05,2.9,0],[0,0,-.28]);[[.98,2.8,.2],[.98,2.8,-.2],[.92,2.55,.22],[.92,2.55,-.22]].forEach(([x,y,z],i)=>a(cone(.09,.5,3),i%2?P.body:P.gold,[x,y,z],[0,0,Math.PI-.5]));
     [[.3,.5,1],[.55,-.4,-1],[.8,.6,1],[.12,.7,-1],[.42,.4,-1],[.68,-.5,1],[.9,.3,-1]].forEach(([u,r,s])=>a(cone(.07,.38,3),P.gold,[.88+.35*u,2.25+1.33*u,s*.1],[0,0,r]));
     [[.08,1],[.14,-1],[.26,1],[.38,-1],[.52,1],[.66,-1]].forEach(([u,s],i)=>a(ico(.17-.1*u),i%2?P.dark:P.gold,[.88+.35*u,2.25+1.33*u,s*(.3-.18*u)*.75],[0,0,-.28],[1,1.5,.7]))}
   else af(new THREE.CylinderGeometry(.3,.8,1.3,7,5),P.gold,[.38,1,.38],[1.05,2.9,0],[0,0,-.28],null,true);
@@ -427,16 +427,19 @@ function makeBird(P){
   a(ico(TH?.08:.13),RED,[1.72,3.28,0],0,[.8,1.5,.6]);
   [1,-1].forEach(s=>{
     cur=rig.neck_in;
-    if(TH&&s<0){/* tapa-olho no olho esquerdo do Frequesprechas (perdeu o olho numa luta): disco preto + tira que sobe por trás da cabeça */
+    if(P.mustache){const pts=[[1.78,3.56,0],[1.76,3.54,.14],[1.72,3.5,.3],[1.66,3.44,.46],[1.6,3.4,.6],[1.55,3.42,.7],[1.52,3.5,.76],[1.52,3.6,.78],[1.55,3.68,.74]].map(([x,y,z])=>new THREE.Vector3(x,y,s*z));
+      for(let k=0;k<pts.length-1;k++){const d=pts[k+1].clone().sub(pts[k]),r0=.075*(1-k/pts.length)+.02,m=new THREE.Mesh(new THREE.CylinderGeometry(r0*.8,r0,d.length(),5),M(0x1a120c));m.position.copy(pts[k]).add(pts[k+1]).multiplyScalar(.5);m.quaternion.setFromUnitVectors(Y,d.normalize());cur.add(m)}
+      a(ico(.1),0x1a120c,[1.78,3.56,0],0,[1,.8,1.4]);a(ico(.04),0x1a120c,[pts[8].x,pts[8].y,pts[8].z],0)}
+    if(FQ&&s<0){/* tapa-olho no olho esquerdo do Frequesprechas (perdeu o olho numa luta): disco preto + tira que sobe por trás da cabeça */
   const V=(x,y,z)=>new THREE.Vector3(x,y,z),pd=V(.394,.159,-.905).normalize(),qd=V(-.62,.78,0),ud=qd.sub(pd.clone().multiplyScalar(qd.dot(pd))).normalize(),rp=[];
   for(let k=0;k<=10;k++){const t=k/10*2.18,c=Math.cos(t),n=Math.sin(t);rp.push(V(1.42+.517*(c*pd.x+n*ud.x),3.65+.45*(c*pd.y+n*ud.y),.382*(c*pd.z+n*ud.z)))}
   for(let k=0;k<10;k++){const d=rp[k+1].clone().sub(rp[k]),m=new THREE.Mesh(new THREE.CylinderGeometry(.03,.03,d.length(),5),M(0x15110f));m.position.copy(rp[k]).add(rp[k+1]).multiplyScalar(.5);m.quaternion.setFromUnitVectors(Y,d.normalize());cur.add(m)}
   a(ico(.17,1),0x15110f,[1.62,3.72,-.34],[0,-.33,0],[1,1.05,.35])}else a(ico(.11),0xffd45a,[1.62,3.72,s*.36]);
-    if(!(TH&&s<0))a(ico(.07),0x15110f,[1.65,3.73,s*.43]);
-    rig['lid'+s]=a(ico(.15),P.gold,[1.63,3.725,s*(TH&&s<0?0:.4)],0,[1,.01,1]);rig['lid'+s].visible=false;
-    const wz=TH?.64:.88;cur=piv('wing'+s,.1,2.3,s*wz);
+    if(!(FQ&&s<0))a(ico(.07),0x15110f,[1.65,3.73,s*.43]);
+    rig['lid'+s]=a(ico(.15),P.gold,[1.63,3.725,s*(FQ&&s<0?0:.4)],0,[1,.01,1]);rig['lid'+s].visible=false;
+    const wz=UT?.46:TH?.64:.88;cur=piv('wing'+s,.1,2.3,s*wz);
     const gw=ico(1,1);gw.rotateY(s>0?0:2.1);
-    af(gw,P.dark,TH?[.85,.6,.5]:[.9,.6,.5],[.1,2,s*wz],[0,0,.18],TH?[.8,.45,.15]:[1,.62,.22]);
+    af(gw,P.dark,TH?[.85,.6,.5]:[.9,.6,.5],[.1,2,s*wz],[0,0,.18],UT?[.6,.33,.12]:TH?[.8,.45,.15]:[1,.62,.22]);
     /* penas de voo: cada uma cai em um nível de dano próprio (ordem diferente em cada asa); antes de cair, a ponta quebra e encurta. KP penas por asa nunca caem, só ficam desgastadas */
     const nW=TH?5:7,KP=TH?1:2,stp=TH?.15:.12,LN=[.78,.88,.98,1.08,1.12,1,.84],RK=(s>0?[4,1,6,2,5,0,3]:[2,5,0,6,3,1,4]).filter(v=>v<nW);
     for(let i=0;i<nW;i++){
@@ -444,8 +447,8 @@ function makeBird(P){
       rig.wf.push({m:fw,t:RK[i]>=nW-KP?9:(TH?.46:.16)+(TH?.5:.74)*RK[i]/(nW-KP-1),c:P.wing,g:false});
     }
     cur=piv('leg'+s,.1,1.45,s*.45);
-    const lr=TH?.7:1;a(ico(TH?.28:.4),P.body,[.1,1.3,s*.45],0,TH?[1,1.25,.7]:[1,1.1,.75]);if(TH)[[0,1.38,.62],[.2,1.34,.58],[-.16,1.34,.56]].forEach(([x,y,z])=>a(cone(.08,.42,3),P.body,[.1+x,y,s*z],[0,0,Math.PI+.12]));
-    const li=cur,peg=TH&&s>0;
+    const lr=UT?.5:TH?.7:1;a(ico(UT?.2:TH?.28:.4),P.body,[.1,1.3,s*.45],0,UT?[.9,1.3,.6]:TH?[1,1.25,.7]:[1,1.1,.75]);if(TH)[[0,1.38,.62],[.2,1.34,.58],[-.16,1.34,.56]].forEach(([x,y,z])=>a(cone(.08,.42,3),P.body,[.1+x,y,s*z],[0,0,Math.PI+.12]));
+    const li=cur,peg=FQ&&s>0;
     if(peg){/* perna de pau do Frequesprechas (perna direita): madeira rígida presa ao joelho, copa e tira de couro no alto, anel de ferro e ponteira no chão */
       a(new THREE.CylinderGeometry(.1,.065,1.15,6),0x8a5a2e,[.1,.62,s*.42]);
       a(new THREE.CylinderGeometry(.19,.12,.3,6),0x4a2f18,[.1,1.08,s*.42]);
@@ -461,7 +464,7 @@ function makeBird(P){
   const T=[[0,0,0],[-.6,.4,0],[-1.05,1,0],[-1.3,1.7,0],[-1.3,2.25,0]];
   cur=piv('tail',-1.2,1.95,0);
   (TH?[[0,.8,P.t1],[.3,.6,P.t2],[-.35,.5,P.t3],[.62,.42,P.gold],[-.66,.4,P.gold]]:[[0,1.12,P.t1],[.2,1,P.t2],[-.2,1,P.t2],[.42,.82,P.t3],[-.42,.82,P.t3],[.64,.62,P.gold],[-.64,.62,P.gold]])
-    .forEach(([an,k,c])=>{const f=feather(T.map(p=>p.map(v=>v*k)),TH?.15:.26,.04,c);f.position.set(-1.2,1.95,0);f.rotation.y=an;cur.add(f);rig.tf.push([f,an])});
+    .forEach(([an,k,c])=>{const f=feather(T.map(p=>p.map(v=>v*k)),UT?.1:TH?.15:.26,.04,c);f.position.set(-1.2,1.95,0);f.rotation.y=an;cur.add(f);rig.tf.push([f,an])});
   rig.tf.sort((p,q)=>Math.abs(p[1])-Math.abs(q[1]));
   b.setDmg=d=>{const e=Math.round((TH?(.4+.6*d):d)*100)/100;if(b._e===e)return;b._e=e;rig.fm.forEach(m=>m.userData.upd(TH?.4+.22*(e-.4)/.6:.5*e));rig.tf.forEach(([f],j)=>{f.visible=j<(TH?1:3)||!(e>.9-.6*j/rig.tf.length)});
     rig.wf.forEach(w=>{const k=Math.min(1,Math.max(0,(e-w.t+.12)/.12)),gone=e>w.t;w.m.visible=!gone;w.m.scale.y=w.t>1?1-.25*Math.max(0,(e-.5)/.5):1-.45*k*k;if(gone&&!w.g&&b.shed)b.shed(w.m,w.c);w.g=gone})};b.setDmg(0);
@@ -524,7 +527,8 @@ function shedFeather(m,col){
 }
 
 /* jogo */
-const NAMES=["Trovão","Capitão","Faísca","Valentão","Pé de Serra","Cangaceiro","Relâmpago","Sultão","Mourão","Tufão","Frequesprechas"];
+const NAMES=["Trovão","Capitão","Faísca","Valentão","Pé de Serra","Cangaceiro","Relâmpago","Sultão","Mourão","Tufão","Frequesprechas","Pancho Palito"];
+const SPAL={Frequesprechas:6,"Pancho Palito":7};/* galos com paleta própria nas lutas sorteadas */
 const INV={Feijão:40,Arroz:30,Batata:25,Trigo:20},KEYS=Object.keys(INV);
 let F=[],odds=[1,1],pick=0,item="Feijão",stake=10,bet=null,st="bet",turn=null,lastAtt=null,streak=0,cnt=null;
 let picked=0,camx=0;const T=2.3,fmt=o=>o.toFixed(2).replace(".",",");
@@ -544,7 +548,7 @@ function newFight(){
   });
   if(CARD&&CARD.live)F.forEach((f,i)=>Object.assign(f,CARD.live.st[i],{max:CARD.live.st[i].hp}));
   if(CARD&&CARD.insc){const o=CARD.insc.opp;Object.assign(F[1],{atk:o.atk,def:o.def,spd:o.spd,luck:o.luck,hp:o.hp,max:o.hp});Object.assign(F[0],{atk:11.5,def:5.5,spd:7,luck:.1,hp:100,max:100})}
-  if(!(CARD&&CARD.live))F.forEach(f=>{const t=TR[f.name];if(t){f.atk+=t.f*.4;f.def+=t.d*.3;f.spd+=t.v*.3;f.luck+=t.p*.004}if(f.name==='Frequesprechas'){f.atk*=.8;f.hp=f.max=Math.round(f.hp*.85)}wfx(f)});
+  if(!(CARD&&CARD.live))F.forEach(f=>{const t=TR[f.name];if(t){f.atk+=t.f*.4;f.def+=t.d*.3;f.spd+=t.v*.3;f.luck+=t.p*.004}{const k=WK[f.name];if(k){f.atk*=k[0];f.hp=f.max=Math.round(f.hp*k[1]);f.spd*=k[2]}}wfx(f)});
   const pw=f=>f.hp*f.atk*(1+f.spd/25)*(1+f.def/30),a=pw(F[0]),c=pw(F[1]);
   odds=[Math.min(6,Math.max(1.15,.92*(a+c)/a)),Math.min(6,Math.max(1.15,.92*(a+c)/c))];
   pick=0;picked=0;stake=Math.min(stake,maxStake());st="bet";turn=null;lastAtt=null;streak=0;cnt=null;rt=0;sheet.visible=true;sheet.position.y=1.2;lv=0;alpha=0;
@@ -852,7 +856,8 @@ const PALX=[{...PAL[0],hud:0xf0993f},{...PAL[1],hud:0x78bdf0},
  {body:0x23262b,dark:0x14161a,gold:0xc4962e,wing:0x2f9e6b,t1:0x0e1a14,t2:0x1f6f4a,t3:0x4fd39b,hud:0x5fe0a8},
  {body:0x9b1c1c,dark:0x6e1010,gold:0xf0b73a,wing:0xf0b73a,t1:0x3a0a0a,t2:0x7a1a1a,t3:0xf0b73a,hud:0xff6a5c},
  {body:0x6b3fa0,dark:0x472a6e,gold:0xe6c35c,wing:0x2ec4b6,t1:0x241238,t2:0x4b2c78,t3:0x2ec4b6,hud:0xc99bff},
- {body:0x8a7a62,dark:0x6a5c48,gold:0xb59a62,wing:0x7a6a50,t1:0x4a4034,t2:0x6a5c48,t3:0x8a7a62,hud:0xd9b88a,thin:true,skin:0xe3a08f}];
+ {body:0x8a7a62,dark:0x6a5c48,gold:0xb59a62,wing:0x7a6a50,t1:0x4a4034,t2:0x6a5c48,t3:0x8a7a62,hud:0xd9b88a,thin:true,skin:0xe3a08f},
+ {body:0xd8c9a0,dark:0xa8956a,gold:0xc9a24a,wing:0x2e7d4f,t1:0xc0392b,t2:0xe8e2d2,t3:0x2e7d4f,hud:0x5fd08a,thin:2,skin:0xd9a38a,mustache:true}];
 const POSES=[{nz:.22,ny:.35,w:1.3,w2:1.3,l:.45,l2:-.1,tl:-.6,ln:.18,y:0},{nz:-.3,ny:.5,w:.9,w2:.9,l:.7,l2:-.25,tl:-.3,ln:-.05,y:0},{nz:.1,ny:.6,w:1.6,w2:.45,l:.3,l2:.3,tl:-.7,ln:.1,y:0},{nz:-.2,ny:.4,w:1.15,w2:1.15,l:1.05,l2:0,tl:-.4,ln:.3,y:.35}];
 function strike(b,p,sd){const R=b.rig;R.neck.rotation.set(0,-p.ny*sd,p.nz);R.wing1.rotation.x=-p.w;R['wing-1'].rotation.x=p.w2;R.leg1.rotation.z=p.l;R['leg-1'].rotation.z=p.l2;R.tail.rotation.set(0,0,p.tl);b.rotation.z=p.ln;b.position.y=p.y}
 let thR,thS,thC;
@@ -869,7 +874,7 @@ function goHome(){inHome=true;document.body.classList.remove('c','s','g','i');do
 function buildHome(){
   const feed=$('feed');feed.innerHTML='';
   for(let i=0;i<8;i++){
-    const nn=NAMES.slice().sort(()=>Math.random()-.5),jj=nn.findIndex((n,k)=>k&&catOf(wOf(n))===catOf(wOf(nn[0]))),[a,b]=[nn[0],nn[jj>0?jj:1]],pi=PALX.slice(0,6).map((_,k)=>k).sort(()=>Math.random()-.5),pal=[a==='Frequesprechas'?PALX[6]:PALX[pi[0]],b==='Frequesprechas'?PALX[6]:PALX[pi[1]]],pz=[POSES[i%4],POSES[(i+2)%4]];
+    const nn=NAMES.slice().sort(()=>Math.random()-.5),jj=nn.findIndex((n,k)=>k&&catOf(wOf(n))===catOf(wOf(nn[0]))),[a,b]=[nn[0],nn[jj>0?jj:1]],pi=PALX.slice(0,6).map((_,k)=>k).sort(()=>Math.random()-.5),pal=[SPAL[a]!=null?PALX[SPAL[a]]:PALX[pi[0]],SPAL[b]!=null?PALX[SPAL[b]]:PALX[pi[1]]],pz=[POSES[i%4],POSES[(i+2)%4]];
     const live=true,tag='ao vivo '+TAGS[i%TAGS.length],ttl=TITLES[i%TITLES.length].replace('{a}',a).replace('{b}',b),ch=CH[i%4],el=document.createElement('a');
     el.href='#';el.className='cd';el.dataset.tag=tag;
     el.innerHTML=`<div class="th" style="--a:${hex(pal[0].hud)}aa;--b:${hex(pal[1].hud)}aa"><canvas width="800" height="450"></canvas><span class="n l">${a}</span><span class="n r">${b}</span><b class="vs">VS</b><em class="du${live?' lv':''}">${live?'AO VIVO':(2+Math.floor(Math.random()*9))+':'+('0'+Math.floor(Math.random()*60)).slice(-2)}</em></div><div class="mt"><i class="av" style="background:${hex(pal[0].hud)};color:#1a1208">${ch[0]}</i><div><h3>${ttl}</h3><p>${ch}${live?' · apostas abertas':''}</p><p>${live?(1+Math.floor(Math.random()*9))+' mil assistindo agora':(3+Math.floor(Math.random()*180))+' mil visualizações · há '+(1+Math.floor(Math.random()*20))+(i%2?' horas':' dias')}</p></div></div>`;
@@ -922,7 +927,7 @@ $('cms').onclick=sendCm;$('cmi').onkeydown=e=>{if(e.key==='Enter')sendCm()};
 let SH={coins:70,owned:[],items:{}};
 try{const s=JSON.parse(localStorage.getItem('gshop2')||'null');if(s){SH=Object.assign(SH,s);if(s.inv)Object.assign(INV,s.inv)}}catch(e){}
 function saveShop(){try{SH.inv=INV;localStorage.setItem('gshop2',JSON.stringify(SH))}catch(e){}}
-const GALOS=[[2,'Faísca',120,'Penas claras e asa vermelha, vive agitado.'],[3,'Valentão',150,'Plumagem negra com brilho verde.'],[4,'Pé de Serra',180,'Vermelho forte, veterano do terreiro.'],[5,'Cangaceiro',220,'Roxo e turquesa, o mais vistoso do galinheiro.'],[6,'Frequesprechas',40,'Magro, pelado e teimoso. Ninguém dá nada por ele.']];
+const GALOS=[[2,'Faísca',120,'Penas claras e asa vermelha, vive agitado.'],[3,'Valentão',150,'Plumagem negra com brilho verde.'],[4,'Pé de Serra',180,'Vermelho forte, veterano do terreiro.'],[5,'Cangaceiro',220,'Roxo e turquesa, o mais vistoso do galinheiro.'],[6,'Frequesprechas',40,'Magro, pelado e teimoso. Ninguém dá nada por ele.'],[7,'Pancho Palito',30,'Magricelo de dar dó, com um bigodão mexicano. Ninguém sabe como se mantém em pé.']];
 const SHOP={racao:[['racao','Ração comum','Saco com 5 porções.',20,5,'🌽'],['racaoP','Ração premium','Milho selecionado, 5 porções.',50,5,'🌾']],
  remedios:[['vit','Vitamina','Reforça as penas e a disposição. 1 dose.',25,1,'💊'],['verm','Vermífugo','Contra vermes. 1 dose.',30,1,'🧪'],['anti','Antibiótico','Para infecções. 1 dose.',60,1,'💉'],['pom','Pomada cicatrizante','Para ferimentos de rinha. 1 dose.',20,1,'🩹']]};
 const PRICE={Feijão:4,Arroz:3,Batata:2,Trigo:3},EM={Feijão:'🫘',Arroz:'🍚',Batata:'🥔',Trigo:'🌾'};
@@ -950,7 +955,8 @@ $('shtabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;stab=b.d
 window.openShop=()=>{B.remove('p','r','c','g','i');B.add('s');shopRender();if(!recent.includes('shop'))recent.push('shop')};
 $('shopapp').onclick=window.openShop;
 /* peso e alimentação: galos engordam com ração e emagrecem com o tempo e as lutas; categorias Pena, Médio e Pesado */
-const BW={Trovão:2.3,Capitão:2.5,Faísca:2.1,Valentão:2.7,'Pé de Serra':2.6,Cangaceiro:2.4,Relâmpago:2,Sultão:3.1,Mourão:2.9,Tufão:2.2,Frequesprechas:1.7};
+const BW={Trovão:2.3,Capitão:2.5,Faísca:2.1,Valentão:2.7,'Pé de Serra':2.6,Cangaceiro:2.4,Relâmpago:2,Sultão:3.1,Mourão:2.9,Tufão:2.2,Frequesprechas:1.7,'Pancho Palito':1.4};
+const WK={Frequesprechas:[.8,.85,1],'Pancho Palito':[.75,.8,1.1]};/* [força, vida, velocidade] */
 let GW={};try{GW=JSON.parse(localStorage.getItem('gwt')||'{}')}catch(e){}
 const bw=n=>BW[n]||2.4,kg=w=>w.toFixed(1).replace('.',','),catOf=w=>w<2.2?'Pena':w<2.7?'Médio':'Pesado';
 const own=n=>GALOS.some(g=>g[1]===n&&SH.owned.includes(g[0]));
@@ -1011,7 +1017,7 @@ A(bx(1.2,.6,.7),0xd9b44a,[5.6,.3,-3.9]);A(bx(.9,.5,.6),0xc9a43a,[5.8,.85,-3.9],[
 const OB=[[-4.3,-3.5,2.2],[2.6,-2.3,.8],[4.4,-1.2,.7],[5.6,-3.9,1]];
 
 /* galos */
-const NM=["Trovão","Capitão","Faísca","Valentão","Pé de Serra","Cangaceiro","Frequesprechas"],SP=[[-2,-.5],[0,1.2],[2.8,.9],[-5,1.4],[5.2,1.3],[-1,-2.6],[-3.5,0]];
+const NM=["Trovão","Capitão","Faísca","Valentão","Pé de Serra","Cangaceiro","Frequesprechas","Pancho Palito"],SP=[[-2,-.5],[0,1.2],[2.8,.9],[-5,1.4],[5.2,1.3],[-1,-2.6],[-3.5,0],[3.8,-2]];
 const SM=new THREE.MeshBasicMaterial({color:0x1d2a14,transparent:true,opacity:.3});
 const mk=i=>{const p=PALX[i];
   const g=new THREE.Group(),b=makeBird(p),sd=new THREE.Mesh(new THREE.CircleGeometry(.8,14),SM);
@@ -1141,7 +1147,7 @@ let last=performance.now();
 let TR={};try{TR=JSON.parse(localStorage.getItem('gtrain2')||'{}')}catch(e){}
 (()=>{
 const gc=$('gcv'),box=$('gcw'),PI=Math.PI,rnd=Math.random,gr=new THREE.WebGLRenderer({canvas:gc,antialias:true}),S=.5,MX=20,DUR=5,WD=0x8a6038,ST=0xe0bf5a,ST2=0xc79c34;
-const GN=NAMES.slice(0,6).concat('Frequesprechas'),SK=[['f','Esporada','🦵','Força'],['d','Esquiva','🛡️','Defesa'],['v','Corrida','💨','Velocidade'],['p','Bicada','🎯','Precisão']];
+const GN=NAMES.slice(0,6).concat('Frequesprechas','Pancho Palito'),SK=[['f','Esporada','🦵','Força'],['d','Esquiva','🛡️','Defesa'],['v','Corrida','💨','Velocidade'],['p','Bicada','🎯','Precisão']];
 gr.setPixelRatio(Math.min(devicePixelRatio,2));
 const gs=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,1,.1,100);
 gs.background=new THREE.Color(0xa9d8ea);gs.fog=new THREE.Fog(0xa9d8ea,30,60);
@@ -1253,7 +1259,7 @@ let last=performance.now();
 })();
 /* app Internet: site de inscrição nas lutas (Arena da Roça) */
 (()=>{
-const RN=NAMES.slice(0,6).concat('Frequesprechas'),MINE=40,COST=30;
+const RN=NAMES.slice(0,6).concat('Frequesprechas','Pancho Palito'),MINE=40,COST=30;
 const EV=[
  {id:'pinto',tag:'Estreantes',title:'Copa Pinto de Ouro',desc:'Para galos novos no terreiro. Adversário tranquilo e prêmio pequeno.',fee:10,prize:30,spots:12,min:0,opp:{name:'Trovão',pal:0,atk:10.3,def:4.8,spd:6.3,luck:.08,hp:94}},
  {id:'terreiro',tag:'Principal',title:'Rinha do Terreiro',desc:'A luta da noite. Equilibrada para quem tem um galo comum.',fee:20,prize:60,spots:8,min:0,opp:{name:'Capitão',pal:1,atk:11.5,def:5.5,spd:7,luck:.1,hp:100}},
@@ -1426,7 +1432,7 @@ const palOf=s=>typeof s.pal==='number'?PALX[s.pal]:s.pal;
 function liveStats(name){
   const f={name,atk:11.5,def:5.5,spd:7,luck:.1,hp:100,max:100,cw:1},t=TR[name];
   if(t){f.atk+=t.f*.4;f.def+=t.d*.3;f.spd+=t.v*.3;f.luck+=t.p*.004}
-  if(name==='Frequesprechas'){f.atk*=.8;f.hp=f.max=Math.round(f.hp*.85)}
+  {const k=WK[name];if(k){f.atk*=k[0];f.hp=f.max=Math.round(f.hp*k[1]);f.spd*=k[2]}}
   wfx(f);return{hp:f.hp,atk:f.atk,def:f.def,spd:f.spd,luck:f.luck,cw:f.cw||1,w:f.w}
 }
 async function api(path,body){
